@@ -43,7 +43,7 @@
 <script src="{{asset('js/navbar_style.js')}}"></script>
 
 
-{{--<script src="{{asset('js/script.js')}}"></script>--}}
+<script src="{{asset('js/script.js')}}"></script>
 {{--<footer>--}}
 {{--    <div class="footer_main">--}}
 {{--        <div class="about">--}}

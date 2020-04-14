@@ -1,29 +1,28 @@
 @extends('layout.main')
 @section('content')
+        <section class="banner-area relative" id="home">
+            <div class="container">
+                <div class="row fullscreen d-flex align-items-center justify-content-start">
+                    <div class="banner-content col-lg-6 col-md-9">
+                            <h4 class="welcome">Wide options of choice </h4>
 
-    <section class="banner-area relative" id="home">
-        <div class="container">
-            <div class="row fullscreen d-flex align-items-center justify-content-start">
-                <div class="banner-content col-lg-6 col-md-9">
-                        <h4 class="welcome">Wide options of choice </h4>
+                            <h1 class="text1">
+                                We serve for today!
+                            </h1>
 
-                        <h1 class="text1">
-                            We serve for today!
-                        </h1>
+                            <div class="banner-content col-lg-12" id="algrthm">
+                                <a href="#" class="btn text-uppercase" id="show">Посмотреть подборки</a>
+                                <p>
+                                    <small class="text_sm">
+                                        Наш алгоритм рекомендационной системы подскажет наилушие подборки заведений.
+                                    </small>
+                                </p>
 
-                        <div class="banner-content col-lg-12" id="algrthm">
-                            <a href="#" class="btn text-uppercase" id="show">Посмотреть подборки</a>
-                            <p>
-                                <small class="text_sm">
-                                    Наш алгоритм рекомендационной системы подскажет наилушие подборки заведений.
-                                </small>
-                            </p>
-
-                        </div>
+                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
      <!-- END CANVAS CONTENT -->
 {{--    <div class="main" id="main_id">--}}

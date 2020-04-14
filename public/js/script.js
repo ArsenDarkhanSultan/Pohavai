@@ -1,9 +1,12 @@
-// function dropdown_hover(){
-//     let main = document.getElementById("main_id");
-//     main.style.backgroundColor = 'rgba(110, 110, 110, 0.56)';
-// }
-//
-// function dropdown_hover_out(){
-//     let main = document.getElementById("body");
-//     main.style.opacity = 1;
-// }
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        if($(this).prop("checked")){
+            let label_ = document.getElementById(this.className);
+            label_.style.backgroundColor = 'rgba(134,197,218,0.49)';
+        }
+        else if($(this).prop("checked") == false){
+            let label_ = document.getElementById(this.className);
+            label_.style.backgroundColor = '#fff';
+        }
+    });
+});
