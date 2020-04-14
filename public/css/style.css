@@ -1,0 +1,284 @@
+/*
+      Body
+              */
+
+body {
+    background-color: #ffffff;
+}
+
+/*
+     Navbar
+              */
+
+.menu{
+    display: inline;
+}
+
+.navbar a{
+    /*color: #222222;*/
+    color: #cbcbcb;
+}
+
+a {
+    color: rgba(45,45,45,0.88);
+    text-decoration: none;
+}
+
+#kk {
+    display: inline;
+    padding-right: 40px;
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    outline: none
+}
+/*
+      Main
+               */
+
+ul{
+    display: inline;
+    padding-left: 600px;
+}
+
+#kk {
+    display: inline;
+    padding-right: 40px;
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    outline: none;
+}
+
+#logo{
+    display: inline;
+    color: rgba(220, 226, 188, 0.78);
+    font-size: 40px;
+    font-weight: 500;
+    outline: none;
+    font-family: New Century Schoolbook, serif;
+    padding-left: 20px;
+}
+
+
+
+
+
+/*
+      Main
+               */
+
+.headline {
+    text-align: center;
+    margin: 2% 32% 0 32%;
+    background-color: rgba(255, 48, 46, 0.71);
+}
+
+.container {
+    text-align: center;
+}
+
+
+
+.restaurants_main {
+    margin-top: 5%;
+    margin-right: 0;
+}
+
+.restaurants_main {
+    /*width: 60%;*/
+    text-align: center;
+}
+
+.restaurants_main .card {
+    width: 60%;
+    margin: 3% 20% 0 20%;
+    height: 42em;
+    background-color: rgba(255,246,176,0.38);
+    text-align: left;
+}
+
+.restaurants_main .card .card-body {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.restaurants_main .card .card-body p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.restaurants_main .card img {
+    width: 100%;
+    height: 27em;
+}
+
+.main {
+    height: 100%;
+}
+
+#home{
+    padding-top: 150px;
+}
+
+#algrthm{
+    padding-top: 50px;
+}
+
+h1 h4{
+    font-family: "Poppins",sans-serif;
+}
+
+.welcome{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    color: #ffffff;
+    background-color: rgba(255, 48, 46, 0.71);
+}
+
+
+.text_sm{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    font-family: Calibri;
+}
+
+.text1{
+    font-family: "Poppins",sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    background-color: rgba(204, 255, 24, 0.71);
+    padding-left: 20px;
+}
+
+#show{
+    background-color: rgba(248,255,35,0.71);
+}
+
+.banner-area{
+    background:url(../test/img/header-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 500px 400px;
+    background-position: 750px 10px;
+    margin-top: 5%;
+}
+
+/*.inner_main {*/
+/*    margin: 2% 4%;*/
+/*    background-color: black;*/
+
+/*    padding: 2% 0;*/
+/*}*/
+
+
+/*
+      Carousel
+                 */
+
+/*.carousel_part {*/
+/*    margin: 0;*/
+/*}*/
+
+
+/*.section {*/
+/*    !*box-shadow: -1px 2px 8px 5px rgba(110,110,110,0.85);*!*/
+/*    box-shadow: -1px 3px 10px 5px rgba(21,21,21,0.78);*/
+/*    margin: 0;*/
+/*}*/
+
+/*.carousel-inner {*/
+/*    width: 100%;*/
+/*    height: 42em;*/
+/*}*/
+
+/*.carousel-control-prev, .carousel-control-next {*/
+/*    height: 42em;*/
+/*    margin-top: 8.466%;*/
+/*    opacity: 0;*/
+/*}*/
+
+
+/*
+      Footer
+                */
+
+footer  {
+    padding: 0;
+    height: 18em;
+    margin-top: 5%;
+}
+
+.footer_main {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(72,72,72,0.59);
+    box-shadow: -1px 3px 10px 5px rgba(21,21,21,0.78);
+}
+
+.footer_main > div {
+    height: 100%;
+    width: 24.25%;
+    float: left;
+    margin-left: 1%;
+    text-align: center;
+    padding: 1% 4%;
+}
+
+.footer_main > .about {
+    margin: 0;
+}
+
+.footer_main > .contact_us > a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer_main > .contact_us > a:last-of-type {
+    display: block;
+    margin: 0 10%;
+    padding: 2.5%;
+    width: 80%;
+    height: 15%;
+    background-color: rgba(72,72,72,0.54);
+    border: 2px solid rgba(49,49,49,0.77);
+    color: #000;
+    font-weight: 500;
+}
+
+.footer_main > .contact_us > a:last-of-type:hover {
+    background-color: rgba(97,97,97,0.56);
+    color: rgba(217,217,217,0.96);
+    transition: 300ms;
+}
+
+.footer_main > .email_updates form {
+    height: 30%;
+}
+
+.footer_main > .email_updates form label {
+    height: 100%;
+    border: 0;
+}
+
+.footer_main > .email_updates form label input{
+    height: 50%;
+    background-color: rgba(72,72,72,0.54);
+    padding: 0 5%;
+    outline: none;
+    border: 2px solid rgba(49,49,49,0.77);
+}
+
+.footer_main > .email_updates form label input:focus{
+    background-color: rgba(97,97,97,0.56);
+    font-weight: 500;
+    color: #1d1d1d;
+}
+
+.footer_main > .soc_nets img {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
