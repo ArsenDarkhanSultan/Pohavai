@@ -18,9 +18,14 @@ Route::get('/', function () {
     return view('main_page');
 });
 
-Route::get('/restaurants/{id}', 'EstablishmentController@get_restaurants');
-Route::get('/bars/{id}', 'EstablishmentController@get_bars');
-Route::get('/cafes/{id}', 'EstablishmentController@get_cafes');
-
+Route::get('/{city_id}/establishments/{type}', 'EstablishmentController@get_establishment');
+Route::get('/{city_id}/establishments/{type}/{est_id}', 'EstablishmentController@get_establishment');
 Route::get('/images', 'EstablishmentController@getImages');
+
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 

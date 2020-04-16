@@ -3,20 +3,20 @@
     <div class="container">
         <div class="headline">
 
-            <h1>Cafes in {{$city->name}}</h1>
+            <h1>{{$est_type}}s in {{$city->name}}</h1>
         </div>
         <div class="restaurants_main">
-            @foreach($cafes as $cafe)
+            @foreach($ests as $rest)
                 <div class="card">
-                    <img src="{{asset($cafe->images[0]->path)}}" alt="">
+                    <img src="{{asset($rest->images[0]->path)}}" alt="">
                     <div class="card-body">
-                        <a href="#"><h2>{{$cafe->name}}</h2></a>
+                        <a href="#"><h2>{{$rest->name}}</h2></a>
                         <ol>
-                            <li>{{$cafe->cuisines}}</li>
-                            <li>{{$cafe->ave_check}}₸ per person</li>
-                            <li>{{$cafe->features}}</li>
+                            <li>{{$rest->cuisines}}</li>
+                            <li>{{$rest->ave_check}}₸ per person</li>
+                            <li>{{$rest->features}}</li>
                         </ol>
-                        <p>{{$cafe->description}}</p>
+                        <p>{{$rest->description}}</p>
                     </div>
                 </div>
             @endforeach
@@ -71,11 +71,4 @@
             </div>
         </div>
     </div>
-{{--    <script>--}}
-{{--        function label_focus_in() {--}}
-{{--            let label_ = document.getElementById("filters");--}}
-{{--            label_.style.backgroundColor = 'rgba(134,197,218,0.49)';--}}
-{{--            console.log('black');--}}
-{{--        }--}}
-{{--    </script>--}}
 @endsection

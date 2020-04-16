@@ -24,12 +24,11 @@ class ImageSeeder extends Seeder
 //            $image->save();
 //        }
 
-        $dict = ['Del mar' => 'test/img/delmar.jpeg', 'Vivaldi' => 'test/img/vivaldi.jpg', 'Grand Opera' => 'test/img/grand_opera.jpg',
-            'East Pan-Asian' => 'test/img/east_pan_asian.jpg', 'China Gold' => 'test/img/china_gold.jpg', 'Myata' => 'test/img/myata.jpg',
-            'Po Pravde' => 'test/img/po_pravde_bar.jpg', 'Telescope' => 'test/img/telescope.jpg',
-            'Tomato' => 'test/img/tomato.jpg', 'Malibu' => 'test/img/malibu.jpg', 'Veranda' => 'test/img/cafe-veranda.jpg',
-            'Shafran' => 'test/img/shafran.jpg'];
-        $establishments = Establishment::all();
+        $dict = ['Del mar' => 'test/img/restaurants/delmar.jpeg', 'Vivaldi' => 'test/img/restaurants/vivaldi.jpg', 'Grand Opera' => 'test/img/restaurants/grand_opera.jpg',
+            'East Pan-Asian' => 'test/img/restaurants/east_pan_asian.jpg', 'China Gold' => 'test/img/restaurants/china_gold.jpg', 'Myata' => 'test/img/bars/myata.jpg',
+            'Po Pravde' => 'test/img/bars/po_pravde_bar.jpg', 'Telescope' => 'test/img/bars/telescope.jpg',
+            'Tomato' => 'test/img/cafes/tomato.jpg', 'Malibu' => 'test/img/cafes/malibu.jpg', 'Veranda' => 'test/img/cafes/cafe-veranda.jpg',
+            'Shafran' => 'test/img/cafes/shafran.jpg'];
 
         foreach ($dict as $key => $val) {
             $image = new Images();

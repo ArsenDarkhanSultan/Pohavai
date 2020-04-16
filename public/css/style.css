@@ -24,18 +24,23 @@ body {
     position: fixed;
     margin: 0;
     width: 100%;
-    padding-top: 1%;
+    padding-top: 0.5%;
+    height: 8.5%;
 }
 
-.navbar a{
-    /*color: #222222;*/
+.navbar nav > a {
     color: #cbcbcb;
 }
 
-a {
-    color: rgba(45,45,45,0.88);
+.navbar ul li a {
+    color: #cbcbcb;
     text-decoration: none;
 }
+
+.navbar ul li a:hover {
+    color: #ffffff;
+}
+
 
 #kk {
     display: inline;
@@ -60,6 +65,7 @@ ul{
     font-weight: 400;
     outline: none;
 }
+
 
 #logo{
     display: inline;
@@ -123,6 +129,9 @@ ul{
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+.restaurants_main .card .card-body a {
+    text-decoration: none;
+}
 
 .restaurants_main .card img {
     width: 100%;
@@ -179,6 +188,8 @@ h1 h4{
     margin-top: 5%;
 }
 
+
+
 .filters {
     display: inline-block;
     float: left;
@@ -212,7 +223,7 @@ h1 h4{
     margin: 3%;
     width: 40%;
     height: 12%;
-    padding: 1.1% 3%;
+    padding: 1.8% 3%;
     border: 1px solid black;
     border-radius: 5px;
     text-align: center;

@@ -5,9 +5,9 @@
         <ul>
 
             <li id="kk"><a href="{{url('/')}}">HOME</a></li>
-            <li id="kk"><a href="{{url('/restaurants/1')}}">RESTAURANTS</a></li>
-            <li id="kk"><a href="{{url('/bars/1')}}">BARS</a></li>
-            <li id="kk"><a href="{{url('/cafes/1')}}">CAFES</a></li>
+            <li id="kk"><a href="{{url('/1/establishments/restaurant')}}">RESTAURANTS</a></li>
+            <li id="kk"><a href="{{url('/1/establishments/bar')}}">BARS</a></li>
+            <li id="kk"><a href="{{url('/1/establishments/cafe')}}">CAFES</a></li>
             <li id="kk"><a href="#chefs">CHEFS</a></li>
             <li id="kk"><a href="#blog">BLOG</a></li>
             <li id="kk"><a href="#contact">CONTACT</a></li>
