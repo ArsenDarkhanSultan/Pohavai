@@ -11,7 +11,7 @@ class EstablishmentSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['restaurant', 'bar', 'cafe'];
+        $types = [1, 2, 3];
         $names = ['restaurant' => ['Del mar', 'Vivaldi', 'Grand Opera', 'East Pan-Asian', 'China Gold'], 'bar' => ['Myata', 'Po Pravde', 'Telescope'],
             'cafe' => ['Tomato', 'Malibu', 'Veranda', 'Shafran']];
         $description = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
@@ -33,7 +33,7 @@ class EstablishmentSeeder extends Seeder
         $city_id = 1;
         for ($i = 0; $i < 5; $i++){
             $est = new Establishment();
-            $est->type = $types[0];
+            $est->type_id = $types[0];
             $est->name = $names['restaurant'][$i];
             $est->description = $description;
             $est->address = $address;
@@ -46,7 +46,7 @@ class EstablishmentSeeder extends Seeder
         }
         for ($i = 0; $i < 3; $i++){
             $est = new Establishment();
-            $est->type = $types[1];
+            $est->type_id = $types[1];
             $est->name = $names['bar'][$i];
             $est->description = $description;
             $est->address = $address;
@@ -59,7 +59,7 @@ class EstablishmentSeeder extends Seeder
         }
         for ($i = 0; $i < 4; $i++){
             $est = new Establishment();
-            $est->type = $types[2];
+            $est->type_id = $types[2];
             $est->name = $names['cafe'][$i];
             $est->description = $description;
             $est->address = $address;

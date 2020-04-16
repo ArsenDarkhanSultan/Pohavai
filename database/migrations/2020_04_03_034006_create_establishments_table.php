@@ -15,7 +15,6 @@ class CreateEstablishmentsTable extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
             $table->string('name');
             $table->longText('description');
             $table->string('address');
@@ -25,6 +24,8 @@ class CreateEstablishmentsTable extends Migration
             $table->float('rating');
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->timestamps();
         });
     }

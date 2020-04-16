@@ -5,9 +5,12 @@
         <ul>
 
             <li id="kk"><a href="{{url('/')}}">HOME</a></li>
-            <li id="kk"><a href="{{url('/1/establishments/restaurant')}}">RESTAURANTS</a></li>
-            <li id="kk"><a href="{{url('/1/establishments/bar')}}">BARS</a></li>
-            <li id="kk"><a href="{{url('/1/establishments/cafe')}}">CAFES</a></li>
+            @foreach($type_names as $type => $bigger_type)
+                <li id="kk"><a href="{{url('/1/establishments', $type)}}">{{$bigger_type}}S</a></li>
+            @endforeach
+{{--            <li id="kk"><a href="{{url('/1/establishments/restaurant')}}">RESTAURANTS</a></li>--}}
+{{--            <li id="kk"><a href="{{url('/1/establishments/bar')}}">BARS</a></li>--}}
+{{--            <li id="kk"><a href="{{url('/1/establishments/cafe')}}">CAFES</a></li>--}}
             <li id="kk"><a href="#chefs">CHEFS</a></li>
             <li id="kk"><a href="#blog">BLOG</a></li>
             <li id="kk"><a href="#contact">CONTACT</a></li>
