@@ -24,3 +24,8 @@ Route::get('/cafes/{id}', 'EstablishmentController@get_cafes');
 
 Route::get('/images', 'EstablishmentController@getImages');
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
