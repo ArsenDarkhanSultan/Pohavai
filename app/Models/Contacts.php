@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contact_numbers extends Model
+class Contacts extends Model
 {
     //
 }

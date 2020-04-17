@@ -2,7 +2,6 @@
 @section('content')
     <div class="container">
         <div class="headline">
-
             <h1>{{$est_type}}s in {{$city->name}}</h1>
         </div>
         <div class="restaurants_main">
@@ -10,7 +9,7 @@
                 <div class="card">
                     <img src="{{asset($rest->images[0]->path)}}" alt="">
                     <div class="card-body">
-                        <a href="#"><h2>{{$rest->name}}</h2></a>
+                        <a href="{{route('establishment', [$city->id, $est_type, $rest->id])}}"><h2>{{$rest->name}}</h2></a>
                         <ol>
                             <li>{{$rest->cuisines}}</li>
                             <li>{{$rest->ave_check}}₸ per person</li>

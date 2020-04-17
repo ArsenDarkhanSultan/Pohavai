@@ -21,7 +21,7 @@ class EstablishmentController extends Controller
     }
 
 
-    public function get_establishment($city_id, $type, Request $request){
+    public function get_establishments($city_id, $type, Request $request){
         $city = City::where('id', $city_id)->first();
         $type_model = Type::where('name', $type)->first();
         $ests = Establishment::where('type_id', $type_model->id)->where('city_id', $city->id)->get();
@@ -32,10 +32,22 @@ class EstablishmentController extends Controller
         for ($i = 0; $i < sizeof($types); $i++){
             $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
         }
-        $context = array_merge(['ests' => $ests, 'city' => $city, 'est_type' => $type], ['type_names' => $type_names, 'cities' => $cities]);
+        $context = ['ests' => $ests, 'city' => $city, 'est_type' => $type, 'type_names' => $type_names, 'cities' => $cities];
         return view('establishments', $context);
     }
 
+    public function get_establishment($city_id, $type, $est_id, Request $request){
+        $type_model = Type::where('name', strtolower($type))->first();
+        $establishment = Establishment::where('type_id', $type_model->id)->where('city_id', $city_id)->where('id', $est_id)->first();
+        $cities = City::all();
+        $types = Type::all();
+        $type_names = array();
+        for ($i = 0; $i < sizeof($types); $i++){
+            $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
+        }
+        $context = ['establishment' => $establishment, 'est_type' => $type, 'type_names' => $type_names, 'cities' => $cities];
+        return view('establishment', $context);
+    }
 
     public function getImages() {
         $restaurant = Establishment::first();
