@@ -15,6 +15,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 Route::get('/', function () {
     return view('main_page');
 });
@@ -38,9 +43,6 @@ Route::get('/images', 'EstablishmentController@getImages');
 
 //>>>>>>> origin/darkhanchik
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
 
 //<<<<<<< HEAD
 //=======
