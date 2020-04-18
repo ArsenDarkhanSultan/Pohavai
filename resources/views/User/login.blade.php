@@ -22,6 +22,11 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
+                <div class="form-check">
+                    <input name="remember_me" type="checkbox" class="form-check-input" id="remember_me">
+                    <label class="form-check-label" for="remember_me">Remember me</label>
+                </div>
+                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

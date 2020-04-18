@@ -21,11 +21,13 @@ class UserController extends Controller
         ];
         $this->validate($request, $rules);
 
-        User::create([
+        $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
+
+        Auth::login($user, isset($request['remember_me']));
 
 
         return redirect()->route('main');
@@ -43,7 +45,7 @@ class UserController extends Controller
 
         $this->validate($request, $rules);
 
-        if (!Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
+        if (!Auth::attempt(['email' => $request['email'], 'password' => $request['password']], isset($request['remember_me']))) {
             return redirect()->back()->withErrors(['error' => trans('auth.failed')]);
         }
 
