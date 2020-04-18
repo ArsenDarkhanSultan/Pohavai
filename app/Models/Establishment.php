@@ -24,4 +24,16 @@ class Establishment extends Model
         return $this->morphMany(Images::class, 'imageable');
     }
 
+    public function cuisines() {
+        return $this->belongsToMany(Cuisine::class, 'establishment_cuisines');
+    }
+
+    public function features() {
+        return $this->belongsToMany(Feature::class, 'establishment_features');
+    }
+
+    public function main_foods() {
+        return $this->belongsToMany(Main_foods::class, 'establishment_main_foods');
+    }
+
 }

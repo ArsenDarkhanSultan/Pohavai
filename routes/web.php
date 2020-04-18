@@ -15,36 +15,32 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+//<<<<<<< HEAD
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/', function () {
-    return view('main_page');
+Route::group(['middleware' => 'citySaved'], function() {
+
+    Route::get('/', 'EstablishmentController@get_main_page')->name('main');
+
+    Route::get('/restaurants/{id}', 'EstablishmentController@get_restaurants');
+    Route::get('/bars/{id}', 'EstablishmentController@get_bars');
+    Route::get('/cafes/{id}', 'EstablishmentController@get_cafes');
+
+    Route::get('/images', 'EstablishmentController@getImages');
+
+    Route::get('login/form', 'UserController@showLogin')->name('loginForm');
+    Route::post('login', 'UserController@login')->name('login');
+    Route::get('logout', 'UserController@logout')->name('logout');
+    Route::get('register/form', 'UserController@showRegister')->name('registerForm');
+    Route::post('register', 'UserController@register')->name('register');
+
+    Route::get('establishments_list/{type}', 'EstablishmentController@get_establishments')->name('establishments');
+    Route::get('establishment/{type}/{est_id}', 'EstablishmentController@get_establishment')->name('establishment');
+    Route::get('/images', 'EstablishmentController@getImages');
+
 });
-//<<<<<<< HEAD
-Route::get('/restaurants/{id}', 'EstablishmentController@get_restaurants');
-Route::get('/bars/{id}', 'EstablishmentController@get_bars');
-Route::get('/cafes/{id}', 'EstablishmentController@get_cafes');
 
-Route::get('/images', 'EstablishmentController@getImages');
-
-Route::get('login/form', 'UserController@showLogin')->name('loginForm');
-Route::post('login', 'UserController@login')->name('login');
-Route::get('register/form', 'UserController@showRegister')->name('RegisterForm');
-Route::post('register', 'UserController@register')->name('register');
-//=======
-
-Route::get('/{city_id}/establishments/{type}', 'EstablishmentController@get_establishment');
-Route::get('/{city_id}/establishments/{type}/{est_id}', 'EstablishmentController@get_establishment');
-Route::get('/images', 'EstablishmentController@getImages');
-
-
-//>>>>>>> origin/darkhanchik
-
-
-//<<<<<<< HEAD
-//=======
-
-//>>>>>>> origin/darkhanchik
+Route::get('setCity/{city_id}', 'CityController@setCity')->name('setCity');

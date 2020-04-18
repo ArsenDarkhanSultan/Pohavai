@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateMainFoodsTable extends Migration
+class CreateAverageChecksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateMainFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_foods', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+        Schema::create('average__checks', function (Blueprint $table) {
+            $table->id();
+            $table->string('check');
             $table->string('slug');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateMainFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_foods');
+        Schema::dropIfExists('average__checks');
     }
 }

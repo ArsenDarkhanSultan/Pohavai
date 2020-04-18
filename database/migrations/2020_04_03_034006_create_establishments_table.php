@@ -15,16 +15,16 @@ class CreateEstablishmentsTable extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
             $table->string('name');
             $table->longText('description');
             $table->string('address');
-            $table->string('cuisines');
-            $table->string('ave_check');
-            $table->string('features');
             $table->float('rating');
-            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('city_id')->default(1);
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->unsignedBigInteger('type_id')->default(1);
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            $table->unsignedBigInteger('ave_check_id')->default(1);
+            $table->foreign('ave_check_id')->references('id')->on('average__checks')->onDelete('cascade');
             $table->timestamps();
         });
     }

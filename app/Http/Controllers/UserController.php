@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -46,6 +47,12 @@ class UserController extends Controller
             return redirect()->back()->withErrors(['error' => trans('auth.failed')]);
         }
 
+        return redirect()->route('main');
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
         return redirect()->route('main');
     }
 

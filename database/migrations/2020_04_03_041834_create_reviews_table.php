@@ -17,8 +17,8 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->string('text');
             $table->integer('rating')->default(1);
-            $table->unsignedBigInteger('est_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('est_id')->default(1);
+            $table->unsignedBigInteger('user_id')->default(1);
             $table->foreign('est_id')->references('id')->on('establishments')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

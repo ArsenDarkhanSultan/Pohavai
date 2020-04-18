@@ -1,17 +1,22 @@
 <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{url('/')}}"><p id="logo">Pohavai</p></a>
     <nav class="menu">
-{{--        <a href="{{url('/')}}"><img class="logo" src="{{asset('test/img/logo.png')}}" alt="logo"></a>--}}
-        <a href="{{url('/')}}"><p id="logo">Pohavai</p></a>
-        <ul>
-
+        <ul class="navbar-nav mr-auto">
             <li id="kk"><a href="{{url('/')}}">HOME</a></li>
-            <li id="kk"><a href="{{url('/1/establishments/restaurant')}}">RESTAURANTS</a></li>
-            <li id="kk"><a href="{{url('/1/establishments/bar')}}">BARS</a></li>
-            <li id="kk"><a href="{{url('/1/establishments/cafe')}}">CAFES</a></li>
+            @if (isset($type_names))
+                @foreach($type_names as $type => $bigger_type)
+                    <li id="kk"><a href="{{url('establishments_list', $type)}}">{{Str::plural($bigger_type)}}</a></li>
+                @endforeach
+            @endif
             <li id="kk"><a href="#chefs">CHEFS</a></li>
             <li id="kk"><a href="#blog">BLOG</a></li>
             <li id="kk"><a href="#contact">CONTACT</a></li>
-
+            @if (Auth::check())
+                <li id="kk"><a href="{{route('logout')}}">LOGOUT</a></li>
+            @else
+                <li id="kk"><a href="{{route('loginForm')}}">SIGN-IN</a></li>
+                <li id="kk"><a href="{{route('registerForm')}}">SIGN-UP</a></li>
+            @endif
         </ul>
     </nav>
 </nav>

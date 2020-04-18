@@ -17,11 +17,12 @@ body {
               */
 
 .menu{
-    display: inline;
+    display: inline-block;
 }
 
 .navbar {
     position: fixed;
+    z-index: 1;
     margin: 0;
     width: 100%;
     padding-top: 0.5%;
@@ -53,17 +54,8 @@ body {
 
 
 ul{
-    display: inline-block;
-    padding-left: 600px;
-}
-
-#kk {
-    display: inline;
-    padding-right: 40px;
-    font-family: "Poppins",sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    outline: none;
+    display: inline-block !important;
+    /*padding-left: 600px;*/
 }
 
 

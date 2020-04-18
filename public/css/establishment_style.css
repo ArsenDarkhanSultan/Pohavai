@@ -1,0 +1,31 @@
+.est_img_carousel {
+    width: 100%;
+    padding: 5% 7%;
+    position: sticky;
+}
+
+.est_img_carousel img {
+    height: 42em;
+}
+
+.est_definition_and_booking_form {
+    width: 100%;
+    padding: 0 7%;
+    height: 50em;
+    /*background-color: ghostwhite;*/
+}
+
+.est_definition_and_booking_form .est_definition {
+    width: 56%;
+    height: 100%;
+    background-color: rgba(203,208,255,0.69);
+    float: left;
+}
+
+.est_definition_and_booking_form .booking_form {
+    float: left;
+    margin-left: 2%;
+    width: 42%;
+    height: 100%;
+    border: 2px solid #bcbcbc;
+}

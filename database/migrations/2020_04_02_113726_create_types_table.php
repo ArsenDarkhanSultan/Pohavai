@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateMainFoodsTable extends Migration
+class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateMainFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_foods', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('types', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateMainFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_foods');
+        Schema::dropIfExists('types');
     }
 }
