@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     public function establishment() {
-        return $this->belongsTo(Establishment::class);
+        return $this->belongsTo(Establishment::class, 'est_id');
     }
 
     public function user() {

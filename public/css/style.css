@@ -1,11 +1,16 @@
 /*
       Body
               */
-
-html, body {
+html {
+    height: 500%;
+    min-height: min-content;
+    max-height: max-content;
+}
+body {
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: auto;
 }
 
 body {
@@ -186,15 +191,17 @@ h1 h4{
     display: inline-block;
     float: left;
     margin-left: 7%;
-    margin-top: 6.71%;
-    width: 30%;
-    height: 55%;
+    margin-top: 6.45%;
+    width: 35%;
+    height: 15%;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 15%;
 }
 
 .filters .card {
-    height: 55%;
-    width: 30%;
-    position: fixed;
+    height: 95%;
+    width: 100%;
 }
 
 .filters .card form {
@@ -202,19 +209,20 @@ h1 h4{
     margin: 0;
     padding: 0;
     width: 100%;
-    text-align: justify;
+    text-align: justify-all;
 }
 
 .filters .card form  select {
-    height: 12%;
+    height: 9%;
     margin: 3%;
     width: 40%;
+    outline: none;
 }
 
 .filters .card form label {
     margin: 3%;
     width: 40%;
-    height: 12%;
+    height: 9%;
     padding: 1.8% 3%;
     border: 1px solid black;
     border-radius: 5px;

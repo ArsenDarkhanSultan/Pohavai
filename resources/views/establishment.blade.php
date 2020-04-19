@@ -36,7 +36,8 @@
         <div class="est_definition_and_booking_form">
             <div class="est_definition">
                 <div class="section section_headline">
-
+                    <h1>{{$establishment->name}}</h1>
+                    <p>{{ucwords($establishment->type->name)}}</p>
                 </div>
                 <div class="section section_rate_reviews">
 

@@ -13,7 +13,15 @@ class Establishment extends Model
 //    }
 
     public function reviews() {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class, 'est_id');
+    }
+
+    public function type() {
+        return $this->belongsTo(Type::class, 'type_id');
+    }
+
+    public function ave_check() {
+        return $this->belongsTo(Average_Check::class);
     }
 
     public function schedules() {

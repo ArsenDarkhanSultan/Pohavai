@@ -15,7 +15,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-//<<<<<<< HEAD
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -24,10 +23,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['middleware' => 'citySaved'], function() {
 
     Route::get('/', 'EstablishmentController@get_main_page')->name('main');
-
-    Route::get('/restaurants/{id}', 'EstablishmentController@get_restaurants');
-    Route::get('/bars/{id}', 'EstablishmentController@get_bars');
-    Route::get('/cafes/{id}', 'EstablishmentController@get_cafes');
 
     Route::get('/images', 'EstablishmentController@getImages');
 
@@ -38,6 +33,7 @@ Route::group(['middleware' => 'citySaved'], function() {
     Route::post('register', 'UserController@register')->name('register');
 
     Route::get('establishments_list/{type}', 'EstablishmentController@get_establishments')->name('establishments');
+    Route::get('establishments_filter/{type}', 'EstablishmentController@get_filtered_establishments')->name('establishments_filter');
     Route::get('establishment/{type}/{est_id}', 'EstablishmentController@get_establishment')->name('establishment');
     Route::get('/images', 'EstablishmentController@getImages');
 
