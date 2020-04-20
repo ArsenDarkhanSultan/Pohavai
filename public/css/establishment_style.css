@@ -18,10 +18,191 @@
 .est_definition_and_booking_form .est_definition {
     width: 56%;
     height: 100%;
-    background-color: rgba(203,208,255,0.69);
+    border: 2px solid rgba(232,182,133,0.88);
+    background-color: rgba(232,182,133,0.69);
     float: left;
     padding: 2% 4%;
+    overflow: auto;
 }
+
+.est_definition_and_booking_form .est_definition .section_rate_reviews {
+    width: 100%;
+    height: 10%;
+    padding: 3.1% 4%;
+}
+
+.est_definition_and_booking_form .est_definition .section_rate_reviews .section_rate, .section_reviews {
+    float: left;
+    height: 50%;
+    width: 48%;
+}
+
+.section_rate {
+    margin-right: 1%;
+}
+
+.section_rate .star{
+    width: 20px;
+    height: 20px;
+    margin-right: 3%;
+    background-color: ghostwhite;
+    float: left;
+    border-radius: 50%;
+}
+
+.section_rate .star_rate {
+    height: 20px;
+    width: 30px;
+    float: left;
+    margin-left: 2%;
+}
+
+.star_rate p{
+    margin: 0;
+    height: 100%;
+}
+
+
+.section_reviews div a {
+    color: #a81817;
+}
+
+.section_properties {
+    width: 100%;
+    height: 30%;
+    padding: 3.1% 4%;
+}
+
+.section_properties .property_cuisine, .property_ave_check {
+    width: 100%;
+    height: 50%;
+}
+
+.property_cuisine .icon {
+    width: 6em;
+    height: 6em;
+    float: left;
+}
+
+.property_cuisine .defs {
+    float: left;
+    width: calc(100% - 6em);
+    height: 6em;
+    padding: 0 5%;
+}
+
+.property_cuisine .defs .name, .val {
+    text-align: left;
+    padding-top: 2%;
+}
+
+.property_cuisine .defs .val {
+    padding-top: 3%;
+}
+
+.property_ave_check .icon {
+    width: 6em;
+    height: 6em;
+    float: left;
+}
+
+.property_ave_check .defs {
+    float: left;
+    width: calc(100% - 6em);
+    height: 6em;
+    padding: 0 5%;
+}
+
+.property_ave_check .defs .name, .val {
+    text-align: left;
+    padding-top: 2%;
+}
+
+.property_ave_check .defs .val {
+    padding-top: 3%;
+}
+
+.icon img {
+    width: 80%;
+    height: 80%;
+}
+
+
+.section_features {
+    width: 100%;
+    height: max-content;
+    padding: 3.1% 4%;
+}
+
+.section_features .each_feature {
+    width: 100%;
+    height: 6em;
+    margin-top: 2%;
+}
+
+
+.section_features .feature_icon {
+    width: 6em;
+    height: 100%;
+    float: left;
+}
+
+.section_features .feature_icon img {
+    width: 80%;
+    height: 80%;
+}
+
+.section_features .feature_name {
+    float: left;
+    width: calc(100% - 6em);
+    height: 100%;
+    padding: 6% 5%;
+    text-align: left;
+}
+
+
+.section_contacts {
+    width: 100%;
+    height: 18%;
+    padding: 3.1% 4%;
+    text-align: left;
+}
+
+.section_contacts .address {
+    width: 100%;
+    height: 25%;
+}
+
+.section_contacts .phone_nums {
+    width: 100%;
+    height: 25%;
+    margin-top: 5%;
+}
+
+.section_contacts .soc_nets {
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
+}
+
+.soc_nets .instagram, .website {
+    width: 3em;
+    height: 3em;
+    float: left;
+    margin-right: 3%;
+}
+.soc_nets .instagram img {
+    width: 80%;
+}
+
+.soc_nets .website img {
+    width: 80%;
+}
+
+
+
+
+
 
 .est_definition_and_booking_form .booking_form {
     float: left;

@@ -38,18 +38,80 @@
                 <div class="section section_headline">
                     <h1>{{$establishment->name}}</h1>
                     <p>{{ucwords($establishment->type->name)}}</p>
+                    <p>{{$establishment->description}}</p>
                 </div>
+                <hr>
                 <div class="section section_rate_reviews">
-
+                    <div class="section_rate">
+                        <div class="star star_1"></div>
+                        <div class="star star_2"></div>
+                        <div class="star star_3"></div>
+                        <div class="star star_4"></div>
+                        <div class="star star_5"></div>
+                        <div class="star_rate"><p>{{$establishment->rating}}</p></div>
+                    </div>
+                    <div class="section_reviews">
+                        <div><a href="#">{{sizeof($establishment->reviews)}} Reviews</a></div>
+                    </div>
                 </div>
+                <hr>
                 <div class="section section_properties">
-
+                    <div class="property_cuisine">
+                        <div class="icon">
+                            <img src="{{asset('test/img/main_images/cuisine.png')}}" alt="">
+                        </div>
+                        <div class="defs">
+                            <div class="name">
+                                <b>Cuisine</b>
+                            </div>
+                            <div class="val">
+                                <p>{{implode(', ', $establishment->cuisines->pluck('name')->toArray())}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property_ave_check">
+                        <div class="icon">
+                            <img src="{{asset('test/img/main_images/ave_check.png')}}" alt="">
+                        </div>
+                        <div class="defs">
+                            <div class="name">
+                                <b>Average check</b>
+                            </div>
+                            <div class="val">
+                                <p>{{$establishment->ave_check->check}} ₸ per person</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <hr>
                 <div class="section section_features">
-
+                    @foreach($establishment->features as $feature)
+                        <div class="each_feature">
+                            <div class="feature_icon">
+                                <img src="{{asset($feature->image[0]->path)}}" alt="">
+                            </div>
+                            <div class="feature_name">
+                                <p>{{$feature->name}}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+                <hr>
                 <div class="section section_contacts">
-
+                    <div class="address">
+                        <a href="#">{{$establishment->address}}</a>
+                    </div>
+                    <div class="phone_nums">
+                        <a href="#">{{$establishment->contacts->number1}}</a>,  <a href="#">{{$establishment->contacts->number2}}</a>
+                    </div>
+                    <div class="soc_nets">
+                        <div class="instagram">
+                            <a href="#"><img src="{{asset('test/img/main_images/instagram.png')}}" alt=""></a>
+                        </div>
+                        <div class="website">
+                            <a href="#"><img src="{{asset('test/img/main_images/website.png')}}" alt=""></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="booking_form">

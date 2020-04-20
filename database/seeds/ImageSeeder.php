@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Establishment;
+use App\Models\Feature;
 use App\Models\Images;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -58,6 +59,20 @@ class ImageSeeder extends Seeder
                 $image->imageable_type = 'establishment';
                 $image->save();
             }
+        }
+        $dict2 = [
+            'wi_fi' => 'test/img/features/wifi.png',
+            'live_music' => 'test/img/features/live_music.png',
+            'highchairs' => 'test/img/features/highchairs.png',
+            'parking' => 'test/img/features/parking.png'
+        ];
+        foreach ($dict2 as $key => $val) {
+            $image = new Images();
+            $feature = Feature::where('slug', $key)->first();
+            $image->path = $val;
+            $image->imageable_id = $feature->id;
+            $image->imageable_type = 'feature';
+            $image->save();
         }
     }
 }

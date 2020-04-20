@@ -193,14 +193,14 @@ h1 h4{
     margin-left: 7%;
     margin-top: 6.45%;
     width: 35%;
-    height: 15%;
+    height: 18%;
     position: sticky;
     position: -webkit-sticky;
     top: 15%;
 }
 
 .filters .card {
-    height: 95%;
+    height: 90%;
     width: 100%;
 }
 
@@ -213,7 +213,7 @@ h1 h4{
 }
 
 .filters .card form  select {
-    height: 9%;
+    height: 8%;
     margin: 3%;
     width: 40%;
     outline: none;
@@ -222,7 +222,7 @@ h1 h4{
 .filters .card form label {
     margin: 3%;
     width: 40%;
-    height: 9%;
+    height: 8%;
     padding: 1.8% 3%;
     border: 1px solid black;
     border-radius: 5px;

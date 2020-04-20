@@ -43,5 +43,8 @@ class Establishment extends Model
     public function main_foods() {
         return $this->belongsToMany(Main_foods::class, 'establishment_main_foods');
     }
+    public function contacts() {
+        return $this->hasOne(Contacts::class, 'est_id');
+    }
 
 }

@@ -14,19 +14,8 @@ class EstablishmentSeeder extends Seeder
         $types = [1, 2, 3];
         $names = ['restaurant' => ['Del mar', 'Vivaldi', 'Grand Opera', 'East Pan-Asian', 'China Gold'], 'bar' => ['Myata', 'Po Pravde', 'Telescope'],
             'cafe' => ['Tomato', 'Malibu', 'Veranda', 'Shafran']];
-        $description = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
+        $description = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
         $address = 'Manasa-41';
-//        $cuisines = ['Del mar' => 'Mediterranean, European', 'Vivaldi' => 'European', 'Grand Opera' => 'European, Eastern',
-//            'East Pan-Asian' => 'pan-Asian', 'China Gold' => 'Chinese, Japanese, European', 'Myata' => 'European',
-//            'Po Pravde' => 'European', 'Eastern', 'Telescope' => 'European, Eastern', 'Tomato' => 'Italian, European',
-//            'Malibu' => 'European, Caucasian, Kazakh', 'Veranda' => 'European, Eastern, Caucasian, Kazakh',
-//            'Shafran' => 'Eastern, European, Japanese'];
-//        $ave_check = ['Del mar' => '15000-20000', 'Vivaldi' => '7000-10000', 'Grand Opera' => '5000-10000', 'East Pan-Asian' =>
-//        '15000-25000', 'China Gold' => '10000-15000', 'Myata' => '7000-10000', 'Po Pravde' => '4000-8000', 'Telescope' => '4000-8000',
-//            'Tomato' => '4000-8000', 'Malibu' => '3000-5000', 'Veranda' => '3000-5000', 'Shafran' => '3000-5000'];
-//        $features = ['Del mar' => 'Wifi', 'Vivaldi' => 'Karaoke, Hookah, Wifi', 'Grand Opera' => 'Karaoke, Hookah, Wifi', 'East Pan-Asian' =>
-//            'Wifi, Live music', 'China Gold' => 'Wifi, Hookah, Live music', 'Myata' => 'Wifi, Hookah', 'Po Pravde' => 'Wifi, Hookah',
-//            'Telescope' => 'Wifi, Hookah', 'Tomato' => 'Wifi, Hookah, Live music', 'Malibu' => 'Wifi', 'Veranda' => 'Wifi', 'Shafran' => 'Wifi'];
         $ratings = ['Del mar' => 4.8, 'Vivaldi' => 4.4, 'Grand Opera' => 4.5, 'East Pan-Asian' =>
             4.8, 'China Gold' => 4.6, 'Myata' => 4.6, 'Po Pravde' => 4.2,
             'Telescope' => 4.1, 'Tomato' => 4.4, 'Malibu' => 3.9, 'Veranda' => 3.9, 'Shafran' => 4.2];
@@ -37,9 +26,6 @@ class EstablishmentSeeder extends Seeder
             $est->name = $names['restaurant'][$i];
             $est->description = $description;
             $est->address = $address;
-//            $est->cuisines = $cuisines[$names['restaurant'][$i]];
-//            $est->ave_check = $ave_check[$names['restaurant'][$i]];
-//            $est->features = $features[$names['restaurant'][$i]];
             $est->rating = $ratings[$names['restaurant'][$i]];
             $est->city_id = $city_id;
             $est->save();
@@ -50,9 +36,6 @@ class EstablishmentSeeder extends Seeder
             $est->name = $names['bar'][$i];
             $est->description = $description;
             $est->address = $address;
-//            $est->cuisines = $cuisines[$names['bar'][$i]];
-//            $est->ave_check = $ave_check[$names['bar'][$i]];
-//            $est->features = $features[$names['bar'][$i]];
             $est->rating = $ratings[$names['bar'][$i]];
             $est->city_id = $city_id;
             $est->save();
@@ -63,12 +46,266 @@ class EstablishmentSeeder extends Seeder
             $est->name = $names['cafe'][$i];
             $est->description = $description;
             $est->address = $address;
-//            $est->cuisines = $cuisines[$names['cafe'][$i]];
-//            $est->ave_check = $ave_check[$names['cafe'][$i]];
-//            $est->features = $features[$names['cafe'][$i]];
             $est->rating = $ratings[$names['cafe'][$i]];
             $est->city_id = $city_id;
             $est->save();
         }
+        $establishments = [
+            [
+                'name' => 'Bon Appetit',
+                'description' => 'Restaurant with a pleasant atmosphere. Bright, spacious room with bright furniture and a no-frills interior.​',
+                'address' => 'Kaldayakova, 38',
+                'city_id' => 1,
+                'type_id' => 3,
+                'ave_check_id' => 1
+            ],
+
+            [
+                'name' => 'Chechil Pub',
+                'description' => 'This is a real oasis of calm, friendly, warm atmosphere and home comfort, located in the center of a bustling metropolis.',
+                'address' => 'Rozbakieva, 77',
+                'city_id' => 1,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'CoffeeBOOM',
+                'description' => 'This is an American brand that began its activities in Kazakhstan in 2013.',
+                'address' => 'Bogenbai batyr, 121',
+                'city_id' => 1,
+                'type_id' => 3,
+                'ave_check_id' => 3
+            ],
+
+            [
+                'name' => 'Fellini',
+                'description' => 'These are real traditional dishes, colorful interior in national style and quality service.',
+                'address' => 'Al-Farabi avenue, 77/8',
+                'city_id' => 1,
+                'type_id' => 1,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'GLORIA JEAN`S COFFEES',
+                'description' => 'It is a small establishment with a pleasant atmosphere, minimalistic interior, a good selection of drinks and desserts.',
+                'address' => '​​​​Абылай хана проспект, 113',
+                'city_id' => 1,
+                'type_id' => 3,
+                'ave_check_id' => 3
+            ],
+
+            [
+                'name' => 'ШашлыкоFF Grill & Bar',
+                'description' => 'A bar in the fashionable style of mixing the old-fashioned cinematic interior with modern elements.',
+                'address' => 'Tole bi, 89',
+                'city_id' => 1,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Guiness Pub',
+                'description' => 'This is a small cozy pub located in the city center. With us you will plunge into the atmosphere of a British pub.',
+                'address' => 'Dostyk avenue, 71',
+                'city_id' => 1,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ]
+            ,
+
+            [
+                'name' => 'KOREAN HOUSE',
+                'description' => 'Then a bewitching world of entertainment and favorite holidays. Our team offers young guests a whole interactive town.',
+                'address' => 'Kabanbai batyr, 87',
+                'city_id' => 1,
+                'type_id' => 1,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'La Tartine',
+                'description' => 'The evolution of taste. What new can you learn today about such famous drinks as coffee and tea?',
+                'address' => 'Samal 2nd microdistrict, 111',
+                'city_id' => 1,
+                'type_id' => 3,
+                'ave_check_id' => 3
+            ],
+
+            [
+                'name' => 'Grelka',
+                'description' => 'A bright representative of home Scandinavian cuisine in Almaty, its authenticity and originality is presented in every dish, atmosphere and emotions.',
+                'address' => 'Kerey-Zhanibek khans, 640/3',
+                'city_id' => 1,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Aura Lounge Bar',
+                'description' => 'This is nine VIP booths and four separate halls exclusively for banquets, space - from 30 to 90 people.',
+                'address' => 'Kurmangazy, 66',
+                'city_id' => 1,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Mamma mia',
+                'description' => 'This quality in everything, in this service, service. The establishment is suitable for dinner, lunch, family celebrations, meetings with friends and goodbye.',
+                'address' => 'Al-Farabi avenue, 7',
+                'city_id' => 1,
+                'type_id' => 1,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Coffee Original',
+                'description' => 'This is a modern city coffee shop with a spacious summer terrace. It will appeal to those who like to have breakfast slowly, drink traditional coffee.',
+                'address' => 'Auezov, 165',
+                'city_id' => 1,
+                'type_id' => 3,
+                'ave_check_id' => 3
+            ],
+
+            [
+                'name' => 'Nedelka',
+                'description' => 'This is a popular and welcoming place, the main advantage of which is the special atmosphere and comfort.',
+                'address' => 'Abay avenue, 19',
+                'city_id' => 1,
+                'type_id' => 3,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Pizza Hut',
+                'description' => 'Undoubtedly suitable for a business meeting, a family evening and a romantic dinner, leaving an unforgettable vacation experience.',
+                'address' => 'Ablylai khan avenue, 62',
+                'city_id'
+                => 1,
+                'type_id' => 3,
+                'ave_check_id' => 2
+            ],
+            [
+                'name' => 'Cafestar',
+                'description' => 'Unique institution of our capital.',
+                'address' => 'Dostyk, 13',
+                'city_id' => 2,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'MILLIONAIRE',
+                'description' => 'The karaoke restaurant Millionaire is a new premium venue. The territory of beautiful and vibrant events, crazy atmosphere and unique relaxation.',
+                'address' => 'Eternal Country Avenue, 54',
+                'city_id' => 2,
+                'type_id' => 1,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Prazhechka',
+                'description' => 'Welcome drink for every guest. Discounts do not apply on holidays.',
+                'address' => 'Ablylai khan avenue, 21',
+                'city_id' => 2,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Noto',
+                'description' => 'Healthy dishes are served that are not only pleasurable, but also beneficial for the body.',
+                'address' => 'Dostyk, 5/1',
+                'city_id' => 2,
+                'type_id' => 2,
+                'ave_check_id' => 2
+            ],
+
+            [
+                'name' => 'Buffet',
+                'description' => 'The only bowling alley in the city with a restaurant, a children\'s area, animators, a karaoke room, a contact bar, a dance floor and a smoky hookah.',
+                'address' => 'Almaty, 13',
+                'city_id' => 2,
+                'type_id' => 3,
+                'ave_check_id' => 3
+            ],
+            [
+                'name' => 'RestoBar 1958',
+                'description' => 'Business lunch from 1200tg, grill bars',
+                'address' => 'Abylai khan avenue, 121',
+                'type_id' => 2,
+                'city_id' => 1,
+                'ave_check_id' => 2,
+            ],
+            [
+                'name' => 'Safran',
+                'description' => 'Reservations, Seating, Serving alcohol, Tables outside, Visitor services at tables',
+                'address' => '​Bajanaulskaja, 30',
+                'type_id' => 1,
+                'city_id' => 1,
+                'ave_check_id' => 1,
+            ],
+            [
+                'name' => 'SOHO Bar-Concert & Meat',
+                'description' => 'Convenient for breakfast, summer terrace, alcohol - full bar, outdoor parking',
+                'address' => 'Kazybek bi, 65',
+                'type_id' => 2,
+                'city_id' => 1,
+                'ave_check_id' => 2,
+            ],
+            [
+                'name' => 'Sultan Sarai',
+                'description' => 'Restaurant "Sultan Sarai" invites everyone to celebrate your event! We guarantee a cozy atmosphere, a delicious dish and a good mood! Waiting for everybody!',
+                'address' => '​Ajeroportnaja, 24',
+                'type_id' => 1,
+                'city_id' => 1,
+                'ave_check_id' => 1,
+            ],
+            [
+                'name' => 'BOCHONOK',
+                'description' => 'A chain of modern beer restaurants for people who value taste, pleasure and chatting with friends, for example, in the evening after work. The menu in the restaurants was developed and monitored every day by our invited chef from Moscow.',
+                'address' => 'Nazarbaev avenue, 193',
+                'type_id' => 3,
+                'city_id' => 1,
+                'ave_check_id' => 2,
+            ],
+            [
+                'name' => 'Gornyj',
+                'description' => '"Gornyj" - a picturesque mountain corner of paradise, harmoniously combining the best conditions and service for your vacation with family or friends! We made sure that your stay was comfortable and left only vivid impressions!',
+                'address' => 'Alma-Arasan Gorge, 1/7',
+                'type_id' => 1,
+                'city_id' => 1,
+                'ave_check_id' => 3,
+            ],
+            [
+                'name' => 'Kabachok Gorynych',
+                'description' => 'Gorynych is a democratic bar for friends, where a friendly atmosphere and good service prevail. We affectionately call it "Kabachok". Exists since 2004.',
+                'address' => '​Gagarina avenue, 298a',
+                'type_id' => 3,
+                'city_id' => 1,
+                'ave_check_id' => 1,
+            ],
+            [
+                'name' => 'Madlen',
+                'description' => 'Lorem ipsum dolor.',
+                'address' => 'Abylai khan avenue, 115',
+                'type_id' => 3,
+                'city_id' => 1,
+                'ave_check_id' => 1,
+            ],
+        ];
+        foreach ($establishments as $establishment){
+            $est = new Establishment();
+            $est->name = $establishment['name'];
+            $est->description = $establishment['description'];
+            $est->address = $establishment['address'];
+            $est->type_id = $establishment['type_id'];
+            $est->city_id = $establishment['city_id'];
+            $est->ave_check_id = $establishment['ave_check_id'];
+            $est->save();
+        }
+
     }
 }

@@ -15,7 +15,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('number1');
+            $table->string('number1')->default('+7 777 77 77');
             $table->string('number2')->nullable();
             $table->string('number3')->nullable();
             $table->string('instagram');
