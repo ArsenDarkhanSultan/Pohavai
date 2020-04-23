@@ -14,7 +14,7 @@ class CityController extends Controller
 
         if ($city) Session::put('city_id', $city_id);
 
-        return redirect()->back();
+        return redirect()->route('main');
     }
 
     public function chooseCityView(Request $request){

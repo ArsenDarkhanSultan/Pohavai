@@ -27,7 +27,7 @@ body {
 
 .navbar {
     position: fixed;
-    z-index: 1;
+    z-index: 999;
     margin: 0;
     width: 100%;
     padding-top: 0.5%;
@@ -58,7 +58,7 @@ body {
 }
 
 
-ul{
+.navbar ul{
     display: inline-block !important;
     /*padding-left: 600px;*/
 }
@@ -145,6 +145,10 @@ ul{
 
 #algrthm{
     padding-top: 50px;
+}
+
+.pagination {
+    z-index: 0;
 }
 
 h1 h4{

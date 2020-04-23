@@ -32,7 +32,7 @@ Route::group(['middleware' => 'citySaved'], function() {
     Route::post('register', 'UserController@register')->name('register');
 
     Route::get('establishments_list/{type}', 'EstablishmentController@get_establishments')->name('establishments');
-    Route::get('establishments_filter/{type}', 'EstablishmentController@get_filtered_establishments')->name('establishments_filter');
+    Route::get('establishments_filter/{type}', 'EstablishmentController@filterEstablishments')->name('establishments_filter');
     Route::get('establishment/{type}/{est_id}', 'EstablishmentController@get_establishment')->name('establishment');
     Route::get('/images', 'EstablishmentController@getImages')->name('images');
 
@@ -41,3 +41,5 @@ Route::group(['middleware' => 'citySaved'], function() {
 });
 
 Route::get('setCity/{city_id}', 'CityController@setCity')->name('setCity');
+Route::get('chooseCity', 'CityController@chooseCityView')->name('chooseCity');
+

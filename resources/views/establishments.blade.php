@@ -23,6 +23,8 @@ $features = \App\Models\Feature::all();
                     </div>
                 </div>
             @endforeach
+            <br>
+                {{$ests->links()}}
         </div>
         <div class="filters">
             <div class="card border-info mb-3">
@@ -39,7 +41,7 @@ $features = \App\Models\Feature::all();
                         @foreach($features as $feature)
                             <label id="{{$feature->slug}}">
                                 {{$feature->name}}
-                                <input class="{{$feature->slug}}" type="checkbox" name="[{{$feature->slug}}]" hidden>
+                                <input class="{{$feature->slug}}" type="checkbox" name="features[{{$feature->slug}}]" hidden>
                             </label>
                         @endforeach
                         <label id="rate_lb">

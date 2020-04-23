@@ -23,27 +23,15 @@ class EstablishmentController extends Controller
         for ($i = 0; $i < sizeof($types); $i++){
             $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
         }
-        $context = ['type_names' => $type_names, 'cities' => $cities];
-        return view('main_page', $context);
+        return view('main_page');
     }
 
 
     public function get_establishments($type, Request $request){
         $city = City::where('id', $request['city_id'])->first();
         $type_model = Type::where('name', $type)->first();
-        $ests = Establishment::where('type_id', $type_model->id)->where('city_id', $city->id)->get();
-        $type = ucwords($type);
-        $cities = City::all();
-        $types = Type::all();
-        $cuisines = Cuisine::all();
-        $features = Feature::all();
-        $type_names = array();
-        for ($i = 0; $i < sizeof($types); $i++){
-            $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
-        }
-        $context = ['ests' => $ests, 'city' => $city, 'est_type' => $type_model, 'type_names' => $type_names, 'cities' => $cities,
-            'cuisines' => $cuisines, 'features' => $features];
-        $revs = Review::where('id', 1)->first();
+        $ests = Establishment::where('type_id', $type_model->id)->where('city_id', $city->id)->paginate(5);
+        $context = ['ests' => $ests, 'est_type' => $type_model];
         return view('establishments', $context);
     }
 
@@ -112,13 +100,7 @@ class EstablishmentController extends Controller
     public function get_establishment($type, $est_id, Request $request){
         $type_model = Type::where('name', strtolower($type))->first();
         $establishment = Establishment::where('type_id', $type_model->id)->where('city_id', $request['city_id'])->where('id', $est_id)->first();
-        $cities = City::all();
-        $types = Type::all();
-        $type_names = array();
-        for ($i = 0; $i < sizeof($types); $i++){
-            $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
-        }
-        $context = ['establishment' => $establishment, 'est_type' => $type_model, 'type_names' => $type_names, 'cities' => $cities];
+        $context = ['establishment' => $establishment, 'est_type' => $type_model];
         return view('establishment', $context);
     }
 
@@ -143,7 +125,7 @@ class EstablishmentController extends Controller
     public function filterEstablishments($type, Request $request) {
         $type_model = Type::where('name', strtolower($type))->first();
 
-        $establishments = Establishment::query();
+        $establishments = Establishment::where('type_id', $type_model->id);
 
         if ($request['features']) {
             $features = array_keys($request['features']); //takes features array from request
@@ -162,7 +144,7 @@ class EstablishmentController extends Controller
             }
         }
 
-        $establishments = $establishments->paginate(3); //Paginate here just a function
+        $establishments = $establishments->paginate(5); //Paginate here just a function
 
         $context = [
             'ests' => $establishments,
