@@ -11,6 +11,7 @@ class EstablishmentSeeder extends Seeder
      */
     public function run()
     {
+        //\Illuminate\Support\Facades\DB::table('establishments')->delete();
         $types = [1, 2, 3];
         $names = ['restaurant' => ['Del mar', 'Vivaldi', 'Grand Opera', 'East Pan-Asian', 'China Gold'], 'bar' => ['Myata', 'Po Pravde', 'Telescope'],
             'cafe' => ['Tomato', 'Malibu', 'Veranda', 'Shafran']];
@@ -296,6 +297,7 @@ class EstablishmentSeeder extends Seeder
                 'ave_check_id' => 1,
             ],
         ];
+
         foreach ($establishments as $establishment){
             $est = new Establishment();
             $est->name = $establishment['name'];

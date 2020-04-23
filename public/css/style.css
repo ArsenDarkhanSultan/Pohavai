@@ -58,7 +58,7 @@ body {
 }
 
 
-ul{
+.menu ul{
     display: inline-block !important;
     /*padding-left: 600px;*/
 }

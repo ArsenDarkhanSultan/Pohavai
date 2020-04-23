@@ -1,11 +1,15 @@
+@php
+    $type_names = \App\Models\Type::all();
+@endphp
+
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="{{url('/')}}"><p id="logo">Pohavai</p></a>
     <nav class="menu">
         <ul class="navbar-nav mr-auto">
             <li id="kk"><a href="{{url('/')}}">HOME</a></li>
             @if (isset($type_names))
-                @foreach($type_names as $type => $bigger_type)
-                    <li id="kk"><a href="{{url('establishments_list', $type)}}">{{Str::plural($bigger_type)}}</a></li>
+                @foreach($type_names->pluck('name') as $type)
+                    <li id="kk"><a href="{{url('establishments_list', $type)}}">{{Str::plural(strtoupper($type))}}</a></li>
                 @endforeach
             @endif
             <li id="kk"><a href="#chefs">CHEFS</a></li>

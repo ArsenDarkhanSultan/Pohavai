@@ -11,10 +11,12 @@ use App\Models\Type;
 use App\Models\Review;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstablishmentController extends Controller
 {
-    public function  get_main_page(Request $request){
+
+    public function get_main_page(Request $request){
         $cities = City::all();
         $types = Type::all();
         $type_names = array();
@@ -24,7 +26,6 @@ class EstablishmentController extends Controller
         $context = ['type_names' => $type_names, 'cities' => $cities];
         return view('main_page', $context);
     }
-
 
     public function get_establishments($type, Request $request){
         $city = City::where('id', $request['city_id'])->first();
@@ -52,7 +53,7 @@ class EstablishmentController extends Controller
         $features = Feature::all();
         $city = City::where('id', $request['city_id'])->first();
         $type_model = Type::where('name', strtolower($type))->first();
-        $ests = Establishment::where('type_id', $type_model->id)->where('city_id', $city->id)->get();
+        $ests = Establishment::where('type_id', $type_model->id)->where('city_id', $city->id)->paginate(20);
         $est_ids = array();
 
         // Filter by cuisines
@@ -70,6 +71,7 @@ class EstablishmentController extends Controller
         $temp = null;
         $est_ids = array();
         $feature_ids = array();
+
         foreach ($features as $feature){
             if ($request[$feature->slug] != null and $request[$feature->slug] == 'on'){
                 array_push($feature_ids, $feature->id);
@@ -99,11 +101,20 @@ class EstablishmentController extends Controller
             $ests = $ests->where('rating', '>', 4.5);
         }
         $type_names = array();
+
         for ($i = 0; $i < sizeof($types); $i++){
             $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
         }
-        $context = ['ests' => $ests, 'city' => $city, 'est_type' => $type_model, 'type_names' => $type_names, 'cities' => $cities,
-            'cuisines' => $cuisines, 'features' => $features];
+
+        $context = [
+            'ests' => $ests,
+            'city' => $city,
+            'est_type' => $type_model,
+            'type_names' => $type_names,
+            'cities' => $cities,
+            'cuisines' => $cuisines,
+            'features' => $features
+        ];
         return view('establishments', $context);
     }
 
@@ -116,7 +127,12 @@ class EstablishmentController extends Controller
         for ($i = 0; $i < sizeof($types); $i++){
             $type_names[$types[$i]->name] = strtoupper($types[$i]->name);
         }
-        $context = ['establishment' => $establishment, 'est_type' => $type_model, 'type_names' => $type_names, 'cities' => $cities];
+        $context = [
+            'establishment' => $establishment,
+            'est_type' => $type_model,
+            'type_names' => $type_names,
+            'cities' => $cities
+        ];
         return view('establishment', $context);
     }
 
@@ -124,6 +140,37 @@ class EstablishmentController extends Controller
         $restaurant = Establishment::first();
         //dd($restaurant->images->toJson());
         return redirect()->to(asset($restaurant->images[0]->path));
+    }
+
+    public function filterEstablishments($type, Request $request) {
+        $type_model = Type::where('name', strtolower($type))->first();
+
+        $establishments = Establishment::query();
+
+        if ($request['features']) {
+            $features = array_keys($request['features']); //takes features array from request
+
+            $establishments = $establishments->whereHas('features', function ($query) use ($features) {
+                $query->whereIn('slug', $features);
+            });
+        }
+
+        if ($request['cuisine']) {
+            $cuisine = Cuisine::where('slug', $request['cuisine'])->first();
+            if ($cuisine) {
+                $establishments->whereHas('cuisines', function($query) use ($cuisine) {
+                    $query->where('slug', $cuisine->slug);
+                });
+            }
+        }
+
+        $establishments = $establishments->paginate(3); //Paginate here just a function
+
+        $content = [
+            'ests' => $establishments,
+            'est_type' => $type_model,
+        ];
+        return response()->view('establishments', $content);
     }
 
 }

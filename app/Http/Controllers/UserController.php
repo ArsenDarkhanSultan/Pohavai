@@ -45,7 +45,8 @@ class UserController extends Controller
 
         $this->validate($request, $rules);
 
-        if (!Auth::attempt(['email' => $request['email'], 'password' => $request['password']], isset($request['remember_me']))) {
+        if
+        (!Auth::attempt(['email' => $request['email'], 'password' => $request['password']], isset($request['remember_me']))) {
             return redirect()->back()->withErrors(['error' => trans('auth.failed')]);
         }
 

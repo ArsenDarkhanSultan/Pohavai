@@ -1,10 +1,16 @@
 @extends('layout.main')
+@php
+    $cuisines = \App\Models\Cuisine::all();
+    $features = \App\Models\Feature::all();
+@endphp
 @section('content')
     <div class="container">
         <div class="headline">
-            <h1>{{ucwords($est_type->name)}}s in {{$city->name}}</h1>
+            <h1>{{ucwords($est_type->name)}}s in {{request()->get('city')->name}}</h1>
+
         </div>
         <div class="restaurants_main">
+            {{$ests->links()}}
             @foreach($ests as $rest)
                 <div class="card">
                     <img src="{{asset($rest->images[0]->path ?? '')}}" alt="">
@@ -28,14 +34,14 @@
                         <select class="select_cuisines btn-primary" name="cuisine">
                             <option selected value="any">Cuisine</option>
                             @foreach($cuisines as $cuisine)
-                                <option value="{{$cuisine->slug}}">{{$cuisine->name}}</option>
+                                <option value="{{$cuisine->slug}}" selected>{{$cuisine->name}}</option>
                             @endforeach
                         </select>
                         <br>
                         @foreach($features as $feature)
                             <label id="{{$feature->slug}}">
                                 {{$feature->name}}
-                                <input class="{{$feature->slug}}" type="checkbox" name="{{$feature->slug}}" hidden>
+                                <input class="{{$feature->slug}}" type="checkbox" name="features[{{$feature->slug}}]" hidden>
                             </label>
                         @endforeach
                         <label id="rate_lb">

@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
 
 class Establishment extends Model
 {
+    use Imageable;
 //    protected $table = 'establishments';
 //    public $restaurants = Establishment::
 //    public function filter($type){
@@ -28,10 +30,6 @@ class Establishment extends Model
         return $this->belongsToMany(Schedule::class);
     }
 
-    public function images() {
-        return $this->morphMany(Images::class, 'imageable');
-    }
-
     public function cuisines() {
         return $this->belongsToMany(Cuisine::class, 'establishment_cuisines');
     }
@@ -43,6 +41,7 @@ class Establishment extends Model
     public function main_foods() {
         return $this->belongsToMany(Main_foods::class, 'establishment_main_foods');
     }
+
     public function contacts() {
         return $this->hasOne(Contacts::class, 'est_id');
     }

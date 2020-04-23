@@ -18,12 +18,18 @@ class CitySaved
     public function handle($request, Closure $next)
     {
         if (Session::has('city_id')) {
+            $city = City::find(Session::get('city_id'));
+            if (!$city) {
+                Session::remove('city_id');
+                return redirect()->route('chooseCity');
+            }
+
             $request['city_id'] = Session::get('city_id');
+            $request['city'] = $city;
             return $next($request);
         }
         else {
-            $cities = City::all();
-            return response()->view('choose_city', compact('cities'));
+            return redirect()->route('chooseCity');
         }
     }
 }
