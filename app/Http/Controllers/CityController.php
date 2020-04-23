@@ -16,4 +16,8 @@ class CityController extends Controller
 
         return redirect()->back();
     }
+
+    public function chooseCityView(Request $request){
+        return view('choose_city', ['cities' => City::all()]);
+    }
 }

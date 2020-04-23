@@ -208,6 +208,7 @@
     float: left;
     margin-left: 2%;
     width: 42%;
-    height: 100%;
-    border: 2px solid #bcbcbc;
+    height: 42%;
+    border: 2px solid rgba(156,232,160,0.69);
+    padding: 2%;
 }

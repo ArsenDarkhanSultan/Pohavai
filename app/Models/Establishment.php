@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
 
 class Establishment extends Model
 {
-//    protected $table = 'establishments';
-//    public $restaurants = Establishment::
-//    public function filter($type){
-//
-//    }
+    use Imageable;
 
     public function reviews() {
         return $this->hasMany(Review::class, 'est_id');
+    }
+
+    public function reservations() {
+        return $this->hasMany(Reservation::class, 'est_id');
     }
 
     public function type() {

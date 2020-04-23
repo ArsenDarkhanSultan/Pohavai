@@ -24,7 +24,6 @@ Route::group(['middleware' => 'citySaved'], function() {
 
     Route::get('/', 'EstablishmentController@get_main_page')->name('main');
 
-    Route::get('/images', 'EstablishmentController@getImages');
 
     Route::get('login/form', 'UserController@showLogin')->name('loginForm');
     Route::post('login', 'UserController@login')->name('login');
@@ -35,7 +34,9 @@ Route::group(['middleware' => 'citySaved'], function() {
     Route::get('establishments_list/{type}', 'EstablishmentController@get_establishments')->name('establishments');
     Route::get('establishments_filter/{type}', 'EstablishmentController@get_filtered_establishments')->name('establishments_filter');
     Route::get('establishment/{type}/{est_id}', 'EstablishmentController@get_establishment')->name('establishment');
-    Route::get('/images', 'EstablishmentController@getImages');
+    Route::get('/images', 'EstablishmentController@getImages')->name('images');
+
+    Route::post('reservation/{est_id}', 'EstablishmentController@reservation')->name('reservation');
 
 });
 

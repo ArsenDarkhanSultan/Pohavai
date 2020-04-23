@@ -1,8 +1,12 @@
 @extends('layout.main')
+@php
+$cuisines = \App\Models\Cuisine::all();
+$features = \App\Models\Feature::all();
+@endphp
 @section('content')
     <div class="container">
         <div class="headline">
-            <h1>{{ucwords($est_type->name)}}s in {{$city->name}}</h1>
+            <h1>{{ucwords($est_type->name)}}s in {{request()->get('city')->name}}</h1>
         </div>
         <div class="restaurants_main">
             @foreach($ests as $rest)
@@ -35,7 +39,7 @@
                         @foreach($features as $feature)
                             <label id="{{$feature->slug}}">
                                 {{$feature->name}}
-                                <input class="{{$feature->slug}}" type="checkbox" name="{{$feature->slug}}" hidden>
+                                <input class="{{$feature->slug}}" type="checkbox" name="[{{$feature->slug}}]" hidden>
                             </label>
                         @endforeach
                         <label id="rate_lb">
