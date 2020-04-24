@@ -197,14 +197,14 @@ h1 h4{
     margin-left: 7%;
     margin-top: 6.45%;
     width: 35%;
-    height: 18%;
+    height: 16%;
     position: sticky;
     position: -webkit-sticky;
     top: 15%;
 }
 
 .filters .card {
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
 

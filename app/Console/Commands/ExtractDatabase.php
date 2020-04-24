@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Contacts;
 use App\Models\Establishment;
 use App\Models\Images;
 use Illuminate\Console\Command;
@@ -41,10 +42,11 @@ class ExtractDatabase extends Command
      */
     public function handle()
     {
-        $fileUrl = Storage::disk('public')->url('db/establishments.csv');
+        $fileUrl = Storage::disk('public')->url('db/establishments1.csv');
 
         if ($this->option('clearFirst')) {
             DB::table('establishments')->delete();
+            DB::table('contacts')->delete();
             DB::table('images')->where('imageable_type', 'establishment')->delete();
             $this->info('Establishments Table Successfully Cleared');
         }
@@ -59,10 +61,9 @@ class ExtractDatabase extends Command
             $establishment->name = $row['title_x'];
             $establishment->description = $row['description'];
             $establishment->address = $row['addres'];
-            $establishment->rating = 0;
             $establishment->city_id = $row['city_id'];
             $establishment->type_id = $row['type'];
-            $establishment->ave_check_id = 1;
+            $establishment->ave_check_id = $row['ave_check_id'];
             $establishment->save();
 
             $image = new Images();
@@ -88,6 +89,13 @@ class ExtractDatabase extends Command
             $image->imageable_id = $establishment->id;
             $image->path = $row['img4'];
             $image->save();
+
+            $contact = new Contacts();
+            $contact->est_id = $establishment->id;
+            $contact->number1 = $row['phone'];
+            $contact->instagram = 'https://www.instagram.com/barbequebybekirchef/?hl=ru';
+            $contact->website = 'https://www.jetbrains.com/';
+            $contact->save();
 
         }, $header);
         $this->info('Success!');

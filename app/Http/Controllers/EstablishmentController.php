@@ -125,9 +125,9 @@ class EstablishmentController extends Controller
     }
 
     public function filterEstablishments($type, Request $request) {
-        $type_model = Type::where('name', strtolower($type))->first();
+        $type_model = Type::where('name', $type)->first();
 
-        $establishments = Establishment::where('type_id', $type_model->id);
+        $establishments = Establishment::where('type_id', $type_model->id)->where('city_id', $request['city_id']);
 
         if ($request['features']) {
             $features = array_keys($request['features']); //takes features array from request

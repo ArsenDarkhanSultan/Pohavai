@@ -7,8 +7,8 @@ $types = App\Models\Type::all();
         <ul class="navbar-nav mr-auto">
             <li id="kk"><a href="{{url('/')}}">ДОМОЙ</a></li>
             @if (isset($types))
-                @foreach($types->pluck('name') as $type_name)
-                    <li id="kk"><a href="{{url('establishments_list', $type_name)}}">{{Str::plural(strtoupper($type_name))}}</a></li>
+                @foreach($types as $type_name)
+                    <li id="kk"><a href="{{url('establishments_list', $type_name->name)}}">{{mb_strtoupper($type_name->title)}}</a></li>
                 @endforeach
             @endif
             <li id="kk"><a href="#chefs">ШЕФЫ</a></li>

@@ -6,7 +6,7 @@ $features = \App\Models\Feature::all();
 @section('content')
     <div class="container">
         <div class="headline">
-            <h1>{{ucwords($est_type->name)}}s in {{request()->get('city')->name}}</h1>
+            <h1>{{ucwords($est_type->title)}} в {{request()->get('city')->name}}</h1>
         </div>
         <div class="restaurants_main">
             {{$ests->links()}}
@@ -17,7 +17,7 @@ $features = \App\Models\Feature::all();
                         <a href="{{route('establishment', [strtolower($est_type->name), $rest->id])}}"><h2>{{$rest->name}}</h2></a>
                         <ol>
                             <li>{{implode(', ', $rest->cuisines->pluck('name')->toArray())}}</li>
-                            <li>{{$rest->ave_check->check}}₸ per person</li>
+                            <li>{{$rest->ave_check->check}}₸ на человека</li>
                             <li>{{implode(', ', $rest->features->pluck('name')->toArray())}}</li>
                         </ol>
                         <p>{{$rest->description}}</p>
@@ -29,7 +29,7 @@ $features = \App\Models\Feature::all();
         </div>
         <div class="filters">
             <div class="card border-info mb-3">
-                <div class="card-header">Filters</div>
+                <div class="card-header">Фильтры</div>
                 <div class="card-body text-info">
                     <form method="get" action="{{route('establishments_filter', strtolower($est_type->name))}}">
                         <select class="select_cuisines btn-primary" name="cuisine">
@@ -49,7 +49,7 @@ $features = \App\Models\Feature::all();
                             Rating > 4.5
                             <input class="rate_lb" type="checkbox" name="rating" hidden>
                         </label>
-                        <button class="btn btn-primary" type="submit">Show</button>
+                        <button class="btn btn-primary" type="submit">Показать</button>
                     </form>
                 </div>
             </div>

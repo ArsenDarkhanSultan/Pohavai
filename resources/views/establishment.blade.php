@@ -106,10 +106,10 @@
                     </div>
                     <div class="soc_nets">
                         <div class="instagram">
-                            <a href="#"><img src="{{asset('test/img/main_images/instagram.png')}}" alt=""></a>
+                            <a href="{{$establishment->contacts->instagram}}"><img src="{{asset('test/img/main_images/instagram.png')}}" alt=""></a>
                         </div>
                         <div class="website">
-                            <a href="#"><img src="{{asset('test/img/main_images/website.png')}}" alt=""></a>
+                            <a href="{{$establishment->contacts->website}}"><img src="{{asset('test/img/main_images/website.png')}}" alt=""></a>
                         </div>
                     </div>
                 </div>
