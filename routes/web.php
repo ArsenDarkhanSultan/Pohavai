@@ -41,3 +41,4 @@ Route::group(['middleware' => 'citySaved'], function() {
 
 Route::get('chooseCity', 'CityController@chooseCityView')->name('chooseCity');
 Route::get('setCity/{city_id}', 'CityController@setCity')->name('setCity');
+Route::get('readCSV', 'EstablishmentController@readCSV');

@@ -34,7 +34,7 @@
                         <select class="select_cuisines btn-primary" name="cuisine">
                             <option selected value="any">Cuisine</option>
                             @foreach($cuisines as $cuisine)
-                                <option value="{{$cuisine->slug}}" selected>{{$cuisine->name}}</option>
+                                <option value="{{$cuisine->slug}}">{{$cuisine->name}}</option>
                             @endforeach
                         </select>
                         <br>

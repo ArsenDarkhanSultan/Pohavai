@@ -7,11 +7,14 @@ use App\Models\Cuisine;
 use App\Models\Establishment;
 use App\Models\City;
 use App\Models\Feature;
+use App\Models\Images;
 use App\Models\Type;
 use App\Models\Review;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class EstablishmentController extends Controller
 {
@@ -171,6 +174,56 @@ class EstablishmentController extends Controller
             'est_type' => $type_model,
         ];
         return response()->view('establishments', $content);
+    }
+
+    public function readCSV(Request $request) {
+        //$file = Storage::disk('public')->get('db/establishments.csv');
+        //dd($file);
+
+        $fileUrl = Storage::disk('public')->url('db/establishments.csv');
+
+        DB::table('establishments')->delete();
+
+        $actualArr = array_map('str_getcsv', file($fileUrl));
+        $header = array_shift($actualArr);
+        array_walk($actualArr, function($row, $key, $header) use ($actualArr) {
+            $row = array_combine($header, $row);
+            $establishment = new Establishment();
+            $establishment->name = $row['title_x'];
+            $establishment->description = $row['description'];
+            $establishment->address = $row['addres'];
+            $establishment->rating = 0;
+            $establishment->city_id = $row['city_id'];
+            $establishment->type_id = $row['type'];
+            $establishment->ave_check_id = 1;
+            $establishment->save();
+
+            $image = new Images();
+            $image->imageable_type = 'establishment';
+            $image->imageable_id = $establishment->id;
+            $image->path = $row['img1'];
+            $image->save();
+
+            $image = new Images();
+            $image->imageable_type = 'establishment';
+            $image->imageable_id = $establishment->id;
+            $image->path = $row['img2'];
+            $image->save();
+
+            $image = new Images();
+            $image->imageable_type = 'establishment';
+            $image->imageable_id = $establishment->id;
+            $image->path = $row['img3'];
+            $image->save();
+
+            $image = new Images();
+            $image->imageable_type = 'establishment';
+            $image->imageable_id = $establishment->id;
+            $image->path = $row['img4'];
+            $image->save();
+
+        }, $header);
+
     }
 
 }
