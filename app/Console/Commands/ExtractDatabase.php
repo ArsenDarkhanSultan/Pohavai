@@ -42,7 +42,7 @@ class ExtractDatabase extends Command
      */
     public function handle()
     {
-        $fileUrl = Storage::disk('public')->url('db/establishments1.csv');
+        $fileUrl = Storage::disk('public')->url('db/establishments.csv');
 
         if ($this->option('clearFirst')) {
             DB::table('establishments')->delete();

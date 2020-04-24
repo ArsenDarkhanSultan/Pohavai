@@ -9,6 +9,23 @@ $(document).ready(function(){
             label_.style.backgroundColor = '#fff';
         }
     });
+    $('#more_reviews').on('click', function(){
+        let reviews = document.getElementById('reviews');
+        let button = this;
+        reviews.style.height = '56%';
+        reviews.style.transition = '0.7s';
+        button.style.outline = 'none';
+        button.style.display = 'none';
+        let other_reviews = document.getElementsByClassName('review_passive');
+        let i;
+        setTimeout(function() {
+            for (i = 0; i < other_reviews.length; i++) {
+                other_reviews[i].style.display = 'block';
+            }
+        }, 400);
+
+
+    })
 
 
 });

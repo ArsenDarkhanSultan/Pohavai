@@ -88,7 +88,7 @@
                     @foreach($establishment->features as $feature)
                         <div class="each_feature">
                             <div class="feature_icon">
-                                <img src="{{asset($feature->image[0]->path)}}" alt="">
+                                <img src="{{asset($feature->images[0]->path ?? '')}}" alt="">
                             </div>
                             <div class="feature_name">
                                 <p>{{$feature->name}}</p>
@@ -133,8 +133,23 @@
                     <button class="btn btn-outline-success">Резерв</button>
                 </form>
             </div>
+            <div class="reviews" id="reviews">
+                <h4>Отзывы</h4>
+                <div class="review">
+                    <p class="review_author">От: {{Auth::user()->email}}</p>
+                    <p class="review_rating">Оценка: {{$establishment->rating}}</p>
+                    <p class="review_content">blablabla</p>
+                </div>
+                @for ($i = 0; $i < 5; $i++)
+                    <div class="review review_passive">
+                        <p class="review_author">От: {{Auth::user()->email}}</p>
+                        <p class="review_rating">Оценка: {{$establishment->rating}}</p>
+                        <p class="review_content">blablabla</p>
+                    </div>
+                @endfor
+                <button class="more_reviews" id="more_reviews">more</button>
+            </div>
             <input type="hidden" id="hdnSession" data-value={{session()->get('success')}} />
-        <!-- TODO make reviews ajax -->
 
         </div>
     </div>
