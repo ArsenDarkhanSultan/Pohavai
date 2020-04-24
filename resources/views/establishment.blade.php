@@ -102,7 +102,7 @@
                         <a href="#">{{$establishment->address}}</a>
                     </div>
                     <div class="phone_nums">
-                        <a href="#">{{$establishment->contacts->number1}}</a>,  <a href="#">{{$establishment->contacts->number2}}</a>
+                        <a href="#">{{$establishment->contacts->number1 ?? ''}}</a>  <a href="#">{{$establishment->contacts->number2 ?? ''}}</a>
                     </div>
                     <div class="soc_nets">
                         <div class="instagram">
