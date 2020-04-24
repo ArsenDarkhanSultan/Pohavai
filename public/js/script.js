@@ -9,4 +9,24 @@ $(document).ready(function(){
             label_.style.backgroundColor = '#fff';
         }
     });
+
+
 });
+
+
+var s= $("#hdnSession").data('value');
+if (s !== '/' && s === 1) {
+    swal({
+        title: 'Успех!',
+        text: 'Стол был успешно зарезервирован',
+        icon: 'success'
+    });
+}
+else if(s !== '/' && s === 0){
+    swal({
+        title: 'Ошибка!',
+        text: 'Что то пошло не так',
+        icon: 'error'
+    });
+}
+

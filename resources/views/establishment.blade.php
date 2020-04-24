@@ -51,7 +51,7 @@
                         <div class="star_rate"><p>{{$establishment->rating}}</p></div>
                     </div>
                     <div class="section_reviews">
-                        <div><a href="#">{{sizeof($establishment->reviews)}} Reviews</a></div>
+                        <div><a href="#">{{sizeof($establishment->reviews)}} Отзывов</a></div>
                     </div>
                 </div>
                 <hr>
@@ -115,8 +115,27 @@
                 </div>
             </div>
             <div class="booking_form">
-
+                <form action="{{route('reservation', $establishment->id)}}" method="post">
+                    {{csrf_field()}}
+                    <label for="date_time_picker">Время прибытия</label>
+                    <input type="datetime-local" id="date_time_picker" class="form-control" name="time">
+                    <label for="seats_picker">Мест на столе</label>
+                    <select type="datetime-local" id="seats_picker" class="form-control" name="seats">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="8">8</option>
+                    </select>
+                    <label for="client_name">Ваше имя</label>
+                    <input id="client_name" class="form-control" name="client_name">
+                    <hr>
+                    <button class="btn btn-outline-success">Резерв</button>
+                </form>
             </div>
+            <input type="hidden" id="hdnSession" data-value={{session()->get('success')}} />
+        <!-- TODO make reviews ajax -->
+
         </div>
     </div>
 </div>

@@ -1,13 +1,12 @@
 @extends('layout.main')
 @php
-    $cuisines = \App\Models\Cuisine::all();
-    $features = \App\Models\Feature::all();
+$cuisines = \App\Models\Cuisine::all();
+$features = \App\Models\Feature::all();
 @endphp
 @section('content')
     <div class="container">
         <div class="headline">
             <h1>{{ucwords($est_type->name)}}s in {{request()->get('city')->name}}</h1>
-
         </div>
         <div class="restaurants_main">
             {{$ests->links()}}
@@ -25,6 +24,8 @@
                     </div>
                 </div>
             @endforeach
+            <br>
+                {{$ests->links()}}
         </div>
         <div class="filters">
             <div class="card border-info mb-3">

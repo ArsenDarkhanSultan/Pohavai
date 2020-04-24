@@ -8,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Establishment extends Model
 {
     use Imageable;
-//    protected $table = 'establishments';
-//    public $restaurants = Establishment::
-//    public function filter($type){
-//
-//    }
 
     public function reviews() {
         return $this->hasMany(Review::class, 'est_id');
+    }
+
+    public function reservations() {
+        return $this->hasMany(Reservation::class, 'est_id');
     }
 
     public function type() {
