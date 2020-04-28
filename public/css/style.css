@@ -2,7 +2,7 @@
       Body
               */
 html {
-    height: 500%;
+    height: 100%;
     min-height: min-content;
     max-height: max-content;
 }
@@ -93,6 +93,10 @@ body {
     margin: 5% 4%;
     height: 100%;
     max-width: 92%;
+}
+
+.restaurants_container {
+    height: 235em;
 }
 
 
@@ -216,6 +220,11 @@ h1 h4{
     text-align: justify-all;
 }
 
+.filters .card-body {
+    padding: 0.5em 1.25em;
+    overflow: auto;
+}
+
 .filters .card form  select {
     height: 8%;
     margin: 3%;
@@ -225,7 +234,7 @@ h1 h4{
 
 .filters .card form label {
     margin: 3%;
-    width: 40%;
+    width: 80%;
     height: 8%;
     padding: 1.8% 3%;
     border: 1px solid black;

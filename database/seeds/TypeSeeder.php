@@ -12,10 +12,12 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $names = ['restaurant', 'bar', 'cafe'];
+        $names = ['restaurant', 'bar', 'cafe', 'karaoke'];
+        $titles = ['Рестораны', 'Бары', 'Кафе', 'Караоке'];
         for ($i = 0; $i < sizeof($names); $i++){
             $type = new Type();
             $type->name = $names[$i];
+            $type->title = $titles[$i];
             $type->save();
         }
 

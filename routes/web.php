@@ -38,10 +38,11 @@ Route::group(['middleware' => 'citySaved'], function() {
 
     Route::post('reservation/{est_id}', 'EstablishmentController@reservation')->name('reservation');
 
+//    Route::post('selections/selection_state', 'SelectionController@select')->name('selection_state');
+
 });
 
 Route::get('chooseCity', 'CityController@chooseCityView')->name('chooseCity');
 Route::get('setCity/{city_id}', 'CityController@setCity')->name('setCity');
 
 Route::get('readCSV', 'EstablishmentController@readCSV');
-Route::get('chooseCity', 'CityController@chooseCityView')->name('chooseCity');

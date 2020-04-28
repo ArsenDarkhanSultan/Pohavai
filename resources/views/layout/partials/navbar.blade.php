@@ -11,7 +11,6 @@ $types = App\Models\Type::all();
                     <li id="kk"><a href="{{url('establishments_list', $type_name->name)}}">{{mb_strtoupper($type_name->title)}}</a></li>
                 @endforeach
             @endif
-            <li id="kk"><a href="#chefs">ШЕФЫ</a></li>
             <li id="kk"><a href="#blog">БЛОГ</a></li>
             <li id="kk"><a href="#contact">КОНТАКТЫ</a></li>
             @if (Auth::check())

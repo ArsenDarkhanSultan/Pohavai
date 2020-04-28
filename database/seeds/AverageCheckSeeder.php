@@ -20,7 +20,7 @@ class AverageCheckSeeder extends Seeder
             '4500-7000',
             '700-1500',
             '7000-10000',
-            'Свыше25000'
+            'Свыше 25000'
             ];
         $slugs = [
             '10000_15000',
@@ -30,7 +30,7 @@ class AverageCheckSeeder extends Seeder
             '4500_7000',
             '700_1500',
             '7000_10000',
-            'Свыше25000'
+            'svyshe_25000'
         ];
         for ($i = 0; $i < sizeof($checks); $i++){
             $ave_check = new Average_Check();

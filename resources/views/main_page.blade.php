@@ -58,5 +58,5 @@
 {{--                <div class=""></div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-
+@include('layout.partials.footer')
 @endsection

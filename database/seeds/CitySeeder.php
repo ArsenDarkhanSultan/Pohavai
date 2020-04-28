@@ -11,7 +11,7 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        $cities = ['Almaty', 'Astana', 'Aktau', 'Aktobe', 'Taraz'];
+        $cities = ['Алматы', 'Астана'];
 
         foreach ($cities as $cit){
             $city = new City();

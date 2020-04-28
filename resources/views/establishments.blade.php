@@ -4,7 +4,7 @@ $cuisines = \App\Models\Cuisine::all();
 $features = \App\Models\Feature::all();
 @endphp
 @section('content')
-    <div class="container">
+    <div class="container restaurants_container">
         <div class="headline">
             <h1>{{ucwords($est_type->title)}} в {{request()->get('city')->name}}</h1>
         </div>
@@ -45,14 +45,11 @@ $features = \App\Models\Feature::all();
                                 <input class="{{$feature->slug}}" type="checkbox" name="features[{{$feature->slug}}]" hidden>
                             </label>
                         @endforeach
-                        <label id="rate_lb">
-                            Rating > 4.5
-                            <input class="rate_lb" type="checkbox" name="rating" hidden>
-                        </label>
                         <button class="btn btn-primary" type="submit">Показать</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    @include('layout.partials.footer')
 @endsection
