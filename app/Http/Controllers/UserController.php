@@ -30,7 +30,7 @@ class UserController extends Controller
         Auth::login($user, isset($request['remember_me']));
 
 
-        return redirect()->route('main');
+        return redirect()->route('mainz');
     }
 
     public function showLogin(Request $request) {
@@ -57,6 +57,11 @@ class UserController extends Controller
         Session::flush();
         Auth::logout();
         return redirect()->route('main');
+    }
+
+    public function profile_show(Request $request){
+        $user = Auth::user();
+        return view('profile_show', ['user' => $user]);
     }
 
 }

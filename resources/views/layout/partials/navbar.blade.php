@@ -1,6 +1,8 @@
 @php
 $types = App\Models\Type::all();
+$cities = \App\Models\City::all();
 @endphp
+
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="{{url('/')}}"><p id="logo">Pohavai</p></a>
     <nav class="menu">
@@ -11,8 +13,21 @@ $types = App\Models\Type::all();
                     <li id="kk"><a href="{{url('establishments_list', $type_name->name)}}">{{mb_strtoupper($type_name->title)}}</a></li>
                 @endforeach
             @endif
-            <li id="kk"><a href="#blog">БЛОГ</a></li>
-            <li id="kk"><a href="#contact">КОНТАКТЫ</a></li>
+            <li id="kk">
+                @if (session()->has('city_id'))
+                <div class="dropdown">
+                    <a class="dropdown_main" style="color: #cbcbcb;">{{mb_strtoupper(\App\Models\City::find(session('city_id'))->name)}}</a>
+                    <div class="dropdown-content">
+                        @foreach($cities as $city)
+                            <a href="{{route('setCity', $city->id)}}">{{mb_strtoupper($city->name)}}</a>
+                        @endforeach
+                    </div>
+                </div>
+                @else
+                    <a href="#">ГОРОД</a>
+                @endif
+            </li>
+            <li id="kk"><a href="{{route('profile_show')}}">ПРОФИЛЬ</a></li>
             @if (Auth::check())
                 <li id="kk"><a href="{{route('logout')}}">ВЫХОД</a></li>
             @else
