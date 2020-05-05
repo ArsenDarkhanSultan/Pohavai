@@ -38,7 +38,11 @@ Route::group(['middleware' => 'citySaved'], function() {
 
     Route::post('reservation/{est_id}', 'EstablishmentController@reservation')->name('reservation');
 
-//    Route::post('selections/selection_state', 'SelectionController@select')->name('selection_state');
+    Route::view('selections/view', 'selections_view')->name('selections_view');
+    Route::post('selections/processing', 'SelectionController@processing')->name('processing');
+    Route::get('selections/show/{type}', 'SelectionController@show')->name('selections_show');
+
+    Route::get('profile/show', 'UserController@profile_show')->name('profile_show');
 
 });
 
