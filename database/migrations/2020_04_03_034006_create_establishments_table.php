@@ -18,7 +18,8 @@ class CreateEstablishmentsTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('address');
-            $table->float('rating')->default(1);
+            $table->string('parking');
+            $table->string('payment');
             $table->unsignedBigInteger('city_id')->default(1);
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->unsignedBigInteger('type_id')->default(1);

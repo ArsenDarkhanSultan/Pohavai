@@ -2,7 +2,7 @@
       Body
               */
 html {
-    height: 500%;
+    height: 100%;
     min-height: min-content;
     max-height: max-content;
 }
@@ -95,6 +95,10 @@ body {
     max-width: 92%;
 }
 
+.restaurants_container {
+    height: 235em;
+}
+
 
 
 .restaurants_main {
@@ -172,7 +176,7 @@ h1 h4{
 .text1{
     font-family: "Poppins",sans-serif;
     font-weight: 600;
-    font-size: 50px;
+    font-size: 40px;
     background-color: rgba(204, 255, 24, 0.71);
     padding-left: 20px;
 }
@@ -197,14 +201,14 @@ h1 h4{
     margin-left: 7%;
     margin-top: 6.45%;
     width: 35%;
-    height: 18%;
+    height: 16%;
     position: sticky;
     position: -webkit-sticky;
     top: 15%;
 }
 
 .filters .card {
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
 
@@ -216,16 +220,21 @@ h1 h4{
     text-align: justify-all;
 }
 
+.filters .card-body {
+    padding: 0.5em 1.25em;
+    overflow: auto;
+}
+
 .filters .card form  select {
     height: 8%;
     margin: 3%;
-    width: 40%;
+    width: 50%;
     outline: none;
 }
 
 .filters .card form label {
     margin: 3%;
-    width: 40%;
+    width: 80%;
     height: 8%;
     padding: 1.8% 3%;
     border: 1px solid black;
@@ -237,17 +246,69 @@ h1 h4{
     cursor: pointer;
 }
 
-.filters_chb input{
-    height: 100%;
-    width: 100%;
-    background-color: black;
-}
+/*.filters_chb input{*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    background-color: black;*/
+/*}*/
 
 
 .filters .card form  .btn {
     width: 30%;
     display: block;
     margin: 5% 35%;
+    height: 8%;
+}
+
+
+.selection .card .card-header {
+    background-color: rgba(188,194,255,0.81);
+}
+.select_type {
+    width: 60%;
+    font-size: 1.5em;
+    height: 2em;
+    margin-top: 1%;
+}
+
+
+
+.selection_est_types .card{
+    padding-bottom: 2%;
+}
+
+.selection .card {
+    margin-top: 4%;
+}
+
+.selection_features .card-body, .selection_cuisines .card-body {
+    height: 35em;
+    overflow: auto;
+}
+
+.selection_cuisines .card label {
+    margin: 3%;
+    width: 22%;
+    padding: 0.5% 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.selection_features .card label {
+    margin: 3%;
+    width: 30%;
+    padding: 0.5% 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+
+.selection_features .card label:hover, .selection_cuisines .card label:hover {
+    cursor: pointer;
 }
 
 

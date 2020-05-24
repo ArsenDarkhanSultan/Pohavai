@@ -15,9 +15,9 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('weekday');
-            $table->timestamp('opens')->nullable();
-            $table->timestamp('closes')->nullable();
+            $table->string('sch');
+            $table->unsignedBigInteger('est_id')->default(1);
+            $table->foreign('est_id')->references('id')->on('establishments')->onDelete('cascade');
             $table->timestamps();
         });
     }

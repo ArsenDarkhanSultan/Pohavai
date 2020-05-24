@@ -15,11 +15,9 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('number1')->default('+7 777 77 77');
-            $table->string('number2')->nullable();
-            $table->string('number3')->nullable();
-            $table->string('instagram');
-            $table->string('website');
+            $table->string('number')->default('+7 777 77 77');
+            $table->string('instagram')->default('https://www.instagram.com/barbequebybekirchef/?hl=ru');
+            $table->string('website')->default('https://www.jetbrains.com/');
             $table->unsignedBigInteger('est_id')->default(1);
             $table->foreign('est_id')->references('id')->on('establishments')->onDelete('cascade');
             $table->timestamps();

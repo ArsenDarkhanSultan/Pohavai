@@ -4,14 +4,14 @@
             <div class="container">
                 <div class="row fullscreen d-flex align-items-center justify-content-start">
                     <div class="banner-content col-lg-6 col-md-9">
-                            <h4 class="welcome">Wide options of choice </h4>
+                            <h4 class="welcome" style="padding: 3px">Широкие возможности выбора</h4>
 
                             <h1 class="text1">
-                                We serve for today!
+                                Сегодня обслуживаем мы!
                             </h1>
 
                             <div class="banner-content col-lg-12" id="algrthm">
-                                <a href="#" class="btn text-uppercase" id="show">Посмотреть подборки</a>
+                                <a href="{{route('selections_view')}}" class="btn text-uppercase" id="show">Посмотреть подборки</a>
                                 <p>
                                     <small class="text_sm">
                                         Наш алгоритм рекомендационной системы подскажет наилушие подборки заведений.
@@ -58,5 +58,5 @@
 {{--                <div class=""></div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-
+@include('layout.partials.footer')
 @endsection

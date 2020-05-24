@@ -10,6 +10,5 @@
 @yield('content')
 </div>
 @include('layout.partials.footer-scripts')
-@include('layout.partials.footer')
 </body>
 </html>

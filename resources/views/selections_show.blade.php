@@ -1,7 +1,7 @@
 @extends('layout.main')
 @php
-$cuisines = \App\Models\Cuisine::all();
-$features = \App\Models\Feature::all();
+    $cuisines = \App\Models\Cuisine::all();
+    $features = \App\Models\Feature::all();
 @endphp
 @section('content')
     <div class="container restaurants_container">
@@ -25,7 +25,7 @@ $features = \App\Models\Feature::all();
                 </div>
             @endforeach
             <br>
-                {{$ests->links()}}
+            {{$ests->links()}}
         </div>
         <div class="filters">
             <div class="card border-info mb-3">

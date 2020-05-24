@@ -1,4 +1,7 @@
 @extends('layout.main')
+@php
+use App\Models\User;
+@endphp
 @section('content')
 <div class="container">
     <div class="headline">
@@ -88,7 +91,7 @@
                     @foreach($establishment->features as $feature)
                         <div class="each_feature">
                             <div class="feature_icon">
-                                <img src="{{asset($feature->image[0]->path)}}" alt="">
+                                <img src="{{asset($feature->images[0]->path ?? '')}}" alt="">
                             </div>
                             <div class="feature_name">
                                 <p>{{$feature->name}}</p>
@@ -106,10 +109,10 @@
                     </div>
                     <div class="soc_nets">
                         <div class="instagram">
-                            <a href="#"><img src="{{asset('test/img/main_images/instagram.png')}}" alt=""></a>
+                            <a href="{{$establishment->contacts->instagram}}"><img src="{{asset('test/img/main_images/instagram.png')}}" alt=""></a>
                         </div>
                         <div class="website">
-                            <a href="#"><img src="{{asset('test/img/main_images/website.png')}}" alt=""></a>
+                            <a href="{{$establishment->contacts->website}}"><img src="{{asset('test/img/main_images/website.png')}}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -133,10 +136,26 @@
                     <button class="btn btn-outline-success">Резерв</button>
                 </form>
             </div>
+            <div class="reviews" id="reviews">
+                <h4>Отзывы</h4>
+                <div class="review">
+                    <p class="review_author">От: {{User::where('id', $establishment->reviews[0]->user_id)->first()->name}}</p>
+                    <p class="review_rating">Оценка: 5.0</p>
+                    <p class="review_content">{{$establishment->reviews[0]->text}}</p>
+                </div>
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="review review_passive">
+                        <p class="review_author">От: {{User::where('id', $establishment->reviews[$i]->user_id)->first()->name}}</p>
+                        <p class="review_rating">Оценка: 5.0</p>
+                        <p class="review_content">{{$establishment->reviews[$i]->text}}</p>
+                    </div>
+                @endfor
+                <button class="more_reviews" id="more_reviews">more</button>
+            </div>
             <input type="hidden" id="hdnSession" data-value={{session()->get('success')}} />
-        <!-- TODO make reviews ajax -->
 
         </div>
     </div>
+    @include('layout.partials.footer')
 </div>
 @endsection

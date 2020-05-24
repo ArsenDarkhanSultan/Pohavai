@@ -37,12 +37,13 @@ class Establishment extends Model
         return $this->belongsToMany(Feature::class, 'establishment_features');
     }
 
-    public function main_foods() {
-        return $this->belongsToMany(Main_foods::class, 'establishment_main_foods');
-    }
 
     public function contacts() {
         return $this->hasOne(Contacts::class, 'est_id');
+    }
+
+    public function schedule() {
+        return $this->hasOne(Schedule::class, 'est_id');
     }
 
 }
