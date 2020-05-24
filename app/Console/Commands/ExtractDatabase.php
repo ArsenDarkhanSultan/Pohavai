@@ -47,12 +47,15 @@ class ExtractDatabase extends Command
             DB::table('establishments')->delete();
             DB::table('images')->where('imageable_type', 'establishment')->delete();
             $this->info('Establishments Table Successfully Cleared');
-        }
+        }.
 
         $this->info('Reading CSV...');
+
         $actualArr = array_map('str_getcsv', file($fileUrl));
-        $header = array_shift($actualArr);
+
         $this->info('Inserting Data to DB...');
+
+        $header = array_shift($actualArr);
         array_walk($actualArr, function($row, $key, $header) {
             $row = array_combine($header, $row);
             $establishment = new Establishment();
@@ -90,6 +93,7 @@ class ExtractDatabase extends Command
             $image->save();
 
         }, $header);
+        
         $this->info('Success!');
     }
 }
