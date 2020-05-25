@@ -21,18 +21,24 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::group(['middleware' => 'citySaved'], function() {
+Route::group(['middleware' => ['citySaved']], function() {
 
     Route::get('/', 'EstablishmentController@get_main_page')->name('main');
 
 
+    // AUTHORIZATION && REGISTRATION
     Route::get('login/form', 'UserController@showLogin')->name('loginForm');
     Route::post('login', 'UserController@login')->name('login');
     Route::get('logout', 'UserController@logout')->name('logout');
     Route::get('register/form', 'UserController@showRegister')->name('registerForm');
-    Route::get('register/verify/{id}/{secret}', 'UserController@verifyEmail')->name('verifyEmail');
+    Route::get('register/verify/{id}', 'UserController@verifyEmail')->name('verifyEmail');
     Route::post('register', 'UserController@register')->name('register');
+
+    //PROFILE
     Route::get('profile/edit', 'UserController@edit')->name('editProfileForm');
+    Route::get('profile/show', 'UserController@profile_show')->name('profile_show');
+    Route::post('profile/update', 'UserController@update')->name('updateProfile');
+
 
     Route::get('establishments_list/{type}', 'EstablishmentController@get_establishments')->name('establishments');
     Route::get('establishments_filter/{type}', 'EstablishmentController@filterEstablishments')->name('establishments_filter');
@@ -45,10 +51,11 @@ Route::group(['middleware' => 'citySaved'], function() {
     Route::post('selections/processing', 'SelectionController@processing')->name('processing');
     Route::get('selections/show/{type}', 'SelectionController@show')->name('selections_show');
 
-    Route::get('profile/show', 'UserController@profile_show')->name('profile_show');
 
-    Route::get('favorites', 'FavoriteController@index')->name('favorites.index');
-    Route::get('favorites/{id}', 'FavoriteController@show')->name('favorites.show');
+    Route::group(['middleware' => 'mustBeVerified'], function() {
+        Route::get('favorites', 'FavoriteController@index')->name('favorites.index');
+        Route::get('favorites/{id}', 'FavoriteController@show')->name('favorites.show');
+    });
 
 });
 

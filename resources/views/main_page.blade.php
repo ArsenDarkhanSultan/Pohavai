@@ -1,5 +1,16 @@
 @extends('layout.main')
 @section('content')
+    @if(session()->has('alert'))
+        <div class="alert alert-success">
+            <h2>{{session()->get('alert')}}</h2>
+        </div>
+    @elseif($errors->any())
+        <div class="alert alert-danger text-center">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+        </div>
+    @endif
         <section class="banner-area relative" id="home">
             <div class="container">
                 <div class="row fullscreen d-flex align-items-center justify-content-start">
