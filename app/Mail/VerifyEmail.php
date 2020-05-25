@@ -33,6 +33,6 @@ class VerifyEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.register');
+        return $this->from('aseke0820@gmail.com')->view('mail.register');
     }
 }

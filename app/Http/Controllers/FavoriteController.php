@@ -16,10 +16,6 @@ class FavoriteController extends Controller
         return view('Favorites.index', $context);
     }
 
-    public function show($id, Request $request) {
-
-    }
-
     public function destroy($id, Request $request) {
 
     }

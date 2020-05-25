@@ -27,9 +27,6 @@ $cities = \App\Models\City::all();
                     <a href="#">ГОРОД</a>
                 @endif
             </li>
-            <li id="kk"><a href="{{route('profile_show')}}">ПРОФИЛЬ</a></li>
-            <li id="kk"><a href="{{route('chooseCity')}}">МОЙ ГОРОД</a></li>
-            <li id="kk"><a href="#contact">КОНТАКТЫ</a></li>
             @if (Auth::check())
                 <li id="kk"><a href="{{route('profile_show')}}">ПРОФИЛЬ</a></li>
                 <li id="kk"><a href="{{route('favorites.index')}}">ИЗБРАННОЕ</a></li>

@@ -45,16 +45,16 @@ use App\User;
                 </div>
                 <hr>
                 <div class="section section_rate_reviews">
-                    <div class="section_rate">
-                        <div class="star star_1"></div>
-                        <div class="star star_2"></div>
-                        <div class="star star_3"></div>
-                        <div class="star star_4"></div>
-                        <div class="star star_5"></div>
-                        <div class="star_rate"><p>{{$establishment->rating}}</p></div>
-                    </div>
-                    <div class="section_reviews">
-                        <div><a href="#">{{sizeof($establishment->reviews)}} Отзывов</a></div>
+{{--                    <div class="section_rate">--}}
+{{--                        <div class="star star_1"></div>--}}
+{{--                        <div class="star star_2"></div>--}}
+{{--                        <div class="star star_3"></div>--}}
+{{--                        <div class="star star_4"></div>--}}
+{{--                        <div class="star star_5"></div>--}}
+{{--                        <div class="star_rate"><p>{{$establishment->rating}}</p></div>--}}
+{{--                    </div>--}}
+                    <div class="section_reviews" style="margin-left: 25%">
+                        <div><a href="#reviews">{{sizeof($establishment->reviews)}} Отзывов</a></div>
                     </div>
                 </div>
                 <hr>
@@ -90,9 +90,6 @@ use App\User;
                 <div class="section section_features">
                     @foreach($establishment->features as $feature)
                         <div class="each_feature">
-                            <div class="feature_icon">
-                                <img src="{{asset($feature->images[0]->path ?? '')}}" alt="">
-                            </div>
                             <div class="feature_name">
                                 <p>{{$feature->name}}</p>
                             </div>
@@ -155,7 +152,7 @@ use App\User;
                 @endif
             </div>
             <input type="hidden" id="hdnSession" data-value={{session()->get('success')}} />
-
+{{--            <button class="btn btn-primary"></button>--}}
         </div>
     </div>
     @include('layout.partials.footer')

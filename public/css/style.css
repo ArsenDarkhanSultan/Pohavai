@@ -114,6 +114,16 @@ body {
     text-align: left;
 }
 
+.restaurants_main .card img {
+    height: 70%;
+}
+
+.restaurants_main .card .description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .card {
     position: static;
 }
@@ -122,6 +132,7 @@ body {
     padding-left: 3%;
     padding-right: 3%;
 }
+
 
 .favorites .card .card-body p {
     text-overflow: ellipsis;
@@ -166,11 +177,6 @@ body {
 }
 .favorites .card .card-body a {
     text-decoration: none;
-}
-
-.favorites .card img {
-    width: 100%;
-    height: 27em;
 }
 
 .main {

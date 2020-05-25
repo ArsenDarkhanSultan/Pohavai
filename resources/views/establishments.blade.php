@@ -20,7 +20,7 @@ $features = \App\Models\Feature::all();
                             <li>{{$rest->ave_check->check}}₸ на человека</li>
                             <li>{{implode(', ', $rest->features->pluck('name')->toArray())}}</li>
                         </ol>
-                        <p>{{mb_substr($rest->description, 0, 700)}}</p>
+                        <p class="description">{{mb_substr($rest->description, 0, 700)}}</p>
                     </div>
                 </div>
             @endforeach
