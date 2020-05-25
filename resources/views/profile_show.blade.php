@@ -8,7 +8,7 @@
         <div class="profile_section">
             <div class="avatar">
                 <div class="rounded-circle ml-auto mr-auto avatar_image">
-                    <img width="200" src="{{asset('storage/'.$user->avatar)}}">
+                    <img width="200" src="{{asset('storage/users/default.png')}}">
                 </div>
                 <div class="username">
                     <h1>{{$user->name}}</h1>

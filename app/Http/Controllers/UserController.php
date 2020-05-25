@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -27,47 +29,41 @@ class UserController extends Controller
         ];
         $this->validate($request, $rules);
 
+        $verify_token = Str::random(30);
+
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
+            'verify_token' => $verify_token,
         ]);
 
-        $verifyUrl = URL::temporarySignedRoute(
-            'verifyEmail',
-            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 15)),
+        $verifyUrl = route('verifyEmail',
             [
                 'id' => $user->id,
-                'secret' => sha1($user->email.$user->password)
-            ]
-        );
+                'secret' => $verify_token
+            ]);
 
         Mail::to($user)->send(new VerifyEmail($user, $verifyUrl));
 
         Auth::login($user, isset($request['remember_me']));
 
-        return redirect()->route('main');
+        return redirect()->route('main')->with(array('alert'=>'Для окончания регистрации подтвердите пожалуйста вашу электронную почту.'));
     }
 
 
-    public function verifyEmail($id, $secret, Request $request) {
-        dd($request->all());
-        if (!$request->hasValidSignature()) {
-            return redirect()->route('registerForm')->withErrors(['error' => 'Incorrect signature']);
-        }
-
+    public function verifyEmail($id, Request $request) {
         $user = User::find($id);
         if (!$user) redirect()->route('registerForm')->withErrors(['error' => 'User not found']);
+        $secret = $request['secret'];
 
-        $secret_check = sha1($user->email, $user->password);
+        if ($secret != $user->verify_token) return redirect()->route('registerForm')->withErrors(['error' => 'Invalid secret']);
 
-        if ($secret_check != $secret) return redirect()->route('registerForm')->withErrors(['error' => 'Invalid secret']);
-
+        $user->verify_token = null;
         $user->email_verified_at = Carbon::now();
         $user->save();
 
-        return redirect()->route('main');
-
+        return redirect()->route('main')->with(['alert' => 'Вы успешно подтвердили электронную почту!']);
     }
 
     public function showLogin(Request $request) {
@@ -80,20 +76,29 @@ class UserController extends Controller
 
     public function update(Request $request) {
         $rules = [
-            'avatar' => 'image',
-            'name' => 'string',
-            'email' => 'email',
-            'password' => 'password'
+            'avatar' => 'nullable|image',
+            'name' => 'nullable|string',
+            'email' => 'nullable|email',
+            'password' => 'nullable'
         ];
         $this->validate($request, $rules);
 
         $user = Auth::user();
 
-        $user->fill($request->all());
+        if ($request['name']) {
+            $user->name = $request['name'];
+        }
+        if ($request['password']) {
+            $user->password = Hash::make($request['password']);
+        }
 
         if ($request['email']) {
-
+            $this->sendVerification($user);
         }
+
+        $user->save();
+
+        return redirect()->route('profile_show');
     }
 
     public function login(Request $request) {
@@ -121,6 +126,21 @@ class UserController extends Controller
     public function profile_show(Request $request){
         $user = Auth::user();
         return view('profile_show', ['user' => $user]);
+    }
+
+    public function sendVerification($user) {
+        $verify_token = Str::random(30);
+        $user->verify_token = $verify_token;
+        $user->email_verified_at = null;
+        $verifyUrl = route('verifyEmail',
+            [
+                'id' => $user->id,
+                'secret' => $verify_token
+            ]);
+
+        Mail::to($user)->send(new VerifyEmail($user, $verifyUrl));
+
+        $user->save();
     }
 
 }

@@ -152,7 +152,7 @@ use App\User;
                 @endif
             </div>
             <input type="hidden" id="hdnSession" data-value={{session()->get('success')}} />
-{{--            <button class="btn btn-primary"></button>--}}
+            <button class="btn btn-primary add_to_favs" id="add_to_favs" data-id="{{$establishment->id}}" style="width: 42%; margin-left: 2%; margin-top: 2%">Добавить в избранные</button>
         </div>
     </div>
     @include('layout.partials.footer')

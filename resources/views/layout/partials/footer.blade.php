@@ -46,6 +46,33 @@
 <script src="{{asset('js/navbar_style.js')}}"></script>
 
 <script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/jquery-3.5.1.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $('.add_to_favs').on('click', function(e){
+            e.preventDefault();
+            est_id = $(this).attr('data-id');
+            data = {
+                est_id: est_id,
+            };
+            console.log(2);
+            $.ajax({
+                type: "GET",
+                url: '{{route('add_to_favs')}}',
+                data: data,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(1);
+                    swal({
+                        title: 'Успех!',
+                        text: 'Заведение успешно добавлено в избраынные',
+                        icon: 'success'
+                    });
+                }
+            })
+        })
+    })
+</script>
 {{--<footer>--}}
 {{--    <div class="footer_main">--}}
 {{--        <div class="about">--}}

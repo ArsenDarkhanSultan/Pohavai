@@ -15,22 +15,20 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('login')}}" method="POST">
+            <form action="{{route('updateProfile')}}" method="POST">
                 {{csrf_field()}}
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Изменить аватар</label>
-                        <input name="avatar" type="file" class="form-control-file" id="avatar">
-                    </div>
-                </form>
+{{--                <div class="form-group">--}}
+{{--                    <label for="exampleFormControlFile1">Изменить аватар</label>--}}
+{{--                    <input name="avatar" type="file" class="form-control-file" id="avatar">--}}
+{{--                </div>--}}
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Имя</label>
-                    <input name="name" class="form-control" id="exampleInputEmail1" aria-describedby="usernameHelp" placeholder="Введите ваше имя">
+                    <label for="exampleInputUsername1">Имя</label>
+                    <input name="name" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Введите ваше имя">
                     <small id="usernameHelp" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Электронная почта</label>
-                    <input name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваше имя">
+                    <input name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваше имя">
                     <small id="emailHelp" class="form-text text-info">Изменив электронную почту, вам потребуется подтвердить её повторно.</small>
                 </div>
                 <div class="form-group">
@@ -38,7 +36,7 @@
                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Введите ваш пароль">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
         </div>
     </div>

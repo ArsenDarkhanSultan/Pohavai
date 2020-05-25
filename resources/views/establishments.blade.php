@@ -5,6 +5,19 @@ $features = \App\Models\Feature::all();
 @endphp
 @section('content')
     <div class="container restaurants_container">
+        @if(session()->has('alert'))
+            <div class="alert alert-success">
+                <h2>{{session()->get('alert')}}</h2>
+            </div>
+        @elseif($errors->any())
+            <div class="alert alert-danger">
+                <ul style="padding-left: 0; margin-left: 10px">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="headline">
             <h1>{{ucwords($est_type->title)}} в {{request()->get('city')->name}}</h1>
         </div>
@@ -12,7 +25,7 @@ $features = \App\Models\Feature::all();
             {{$ests->links()}}
             @foreach($ests as $rest)
                 <div class="card">
-                    <img src="{{asset($rest->images[0]->path ?? '')}}" alt="">
+                    <img height="400" src="{{asset($rest->images[0]->path ?? '')}}" alt="">
                     <div class="card-body">
                         <a href="{{route('establishment', [strtolower($est_type->name), $rest->id])}}"><h2>{{$rest->name}}</h2></a>
                         <ol>
@@ -20,7 +33,7 @@ $features = \App\Models\Feature::all();
                             <li>{{$rest->ave_check->check}}₸ на человека</li>
                             <li>{{implode(', ', $rest->features->pluck('name')->toArray())}}</li>
                         </ol>
-                        <p class="description">{{mb_substr($rest->description, 0, 700)}}</p>
+                        <p class="description">{{$rest->description}}</p>
                     </div>
                 </div>
             @endforeach

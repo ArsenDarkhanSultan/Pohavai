@@ -20,7 +20,7 @@
                             <li>{{$rest->ave_check->check}}₸ на человека</li>
                             <li>{{implode(', ', $rest->features->pluck('name')->toArray())}}</li>
                         </ol>
-                        <p>{{$rest->description}}</p>
+                        <p class="description">{{$rest->description}}</p>
                     </div>
                 </div>
             @endforeach
