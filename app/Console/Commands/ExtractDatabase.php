@@ -61,7 +61,7 @@ class ExtractDatabase extends Command
             DB::table('features')->delete();
             DB::table('cuisines')->delete();
             $this->info('Establishments Table Successfully Cleared');
-        }.
+        }
 
         $this->info('Reading CSV...');
 

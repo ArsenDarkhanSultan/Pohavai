@@ -109,6 +109,17 @@
       <path value="$PROJECT_DIR$/vendor/larapack/hooks" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/voyager-themes/src" />
+      <path value="$PROJECT_DIR$/vendor/voyager-themes/config" />
+      <path value="$PROJECT_DIR$/vendor/voyager-themes/resources" />
+      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/voyager-themes/.git" />
+      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
+      <path value="$PROJECT_DIR$/vendor/model-log/.git" />
+      <path value="$PROJECT_DIR$/vendor/model-log/src" />
+      <path value="$PROJECT_DIR$/vendor/model-log/config" />
+      <path value="$PROJECT_DIR$/vendor/model-log/resources" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

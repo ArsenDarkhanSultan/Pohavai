@@ -26,10 +26,14 @@ class CitySaved
 
             $request['city_id'] = Session::get('city_id');
             $request['city'] = $city;
-            return $next($request);
         }
         else {
-            return redirect()->route('chooseCity');
+
+            $city = City::first();
+            Session::put('city_id', $city->id);
+            $request['city_id'] = $city->id;
+            $request['city'] = $city;
         }
+        return $next($request);
     }
 }

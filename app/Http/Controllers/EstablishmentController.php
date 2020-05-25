@@ -32,6 +32,7 @@ class EstablishmentController extends Controller
 
     public function get_establishments($type, Request $request){
         $city = City::where('id', $request['city_id'])->first();
+        if (!$city) $city = City::first();
         $type_model = Type::where('name', $type)->first();
         $ests = Establishment::where('type_id', $type_model->id)->where('city_id', $city->id)->paginate(5);
         $context = ['ests' => $ests, 'est_type' => $type_model];
