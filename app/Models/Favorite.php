@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Favorite extends Model
 {
-    use Imageable;
+    //
 }

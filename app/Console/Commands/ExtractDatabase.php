@@ -64,9 +64,12 @@ class ExtractDatabase extends Command
         }
 
         $this->info('Reading CSV...');
+
         $actualArr = array_map('str_getcsv', file($fileUrl));
-        $header = array_shift($actualArr);
+
         $this->info('Inserting Data to DB...');
+
+        $header = array_shift($actualArr);
         array_walk($actualArr, function($row, $key, $header) {
             $row = array_combine($header, $row);
             $establishment = new Establishment();
@@ -583,6 +586,7 @@ class ExtractDatabase extends Command
             }
 
         }, $header);
+        
         $this->info('Success!');
     }
 }

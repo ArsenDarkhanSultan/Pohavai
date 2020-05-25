@@ -118,23 +118,57 @@ body {
     position: static;
 }
 
-.restaurants_main .card .card-body {
+.favorites .card .card-body {
     padding-left: 3%;
     padding-right: 3%;
 }
 
-.restaurants_main .card .card-body p {
+.favorites .card .card-body p {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-.restaurants_main .card .card-body a {
+.favorites .card .card-body a {
     text-decoration: none;
 }
 
-.restaurants_main .card img {
+.favorites .card img {
+    width: 100%;
+    height: 27em;
+}
+
+.favorites {
+    margin: 5% 0 0 5%;
+    float: left;
+    width: 50%;
+}
+
+.favorites .card {
+    margin-top: 3%;
+    height: 42em;
+    background-color: rgba(255,246,176,0.38);
+    text-align: left;
+}
+
+.favorites .card .card-body {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.favorites .card .card-body p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.favorites .card .card-body a {
+    text-decoration: none;
+}
+
+.favorites .card img {
     width: 100%;
     height: 27em;
 }
@@ -465,4 +499,13 @@ footer  {
 .dropdown:hover .dropdown-content {
     display: block;
     cursor: pointer;
+}
+
+/* avatar */
+
+.avatar_image {
+    width:200px;
+    height:200px;
+    overflow: hidden;
+    background-color: white
 }
